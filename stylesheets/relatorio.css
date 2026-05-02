@@ -48,7 +48,9 @@
 
 .md-typeset table:not([class]) {
   display: table;
-  width: 100%;
+  width: max-content;
+  min-width: 100%;
+  max-width: none;
   font-size: 0.68rem;
 }
 
@@ -79,4 +81,45 @@
 
 .md-content {
   max-width: none;
+}
+
+.md-typeset__table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.md-typeset__scrollwrap {
+  margin: 0.75rem 0 1rem;
+}
+
+.md-typeset a[href$=".pdf"] {
+  font-weight: 700;
+}
+
+@media screen and (max-width: 760px) {
+  .md-typeset {
+    font-size: 0.76rem;
+    line-height: 1.58;
+  }
+
+  .md-typeset p {
+    text-align: left;
+    text-indent: 0;
+  }
+
+  .md-typeset table:not([class]) {
+    font-size: 0.62rem;
+  }
+
+  .md-typeset table:not([class]) th,
+  .md-typeset table:not([class]) td {
+    padding: 0.28rem 0.36rem;
+    white-space: nowrap;
+  }
+
+  .md-typeset .legenda {
+    font-size: 0.68rem;
+  }
 }
