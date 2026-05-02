@@ -1,0 +1,82 @@
+
+:root {
+  --md-text-font: Arial, Helvetica, sans-serif;
+}
+
+.md-typeset {
+  font-size: 0.78rem;
+  line-height: 1.62;
+}
+
+.md-typeset p {
+  text-align: justify;
+  text-indent: 1.25cm;
+  margin-top: 0;
+  margin-bottom: 0.85em;
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4 {
+  text-indent: 0;
+  line-height: 1.25;
+  color: #172033;
+}
+
+.md-typeset h1 {
+  font-weight: 700;
+  border-bottom: 1px solid #d9e0e8;
+  padding-bottom: 0.35rem;
+}
+
+.md-typeset img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1rem auto 0.35rem;
+}
+
+.md-typeset .legenda {
+  display: block;
+  text-align: center !important;
+  text-indent: 0 !important;
+  font-style: italic;
+  margin: 0.2rem 0 1rem;
+  color: #3b4654;
+}
+
+.md-typeset table:not([class]) {
+  display: table;
+  width: 100%;
+  font-size: 0.68rem;
+}
+
+.md-typeset table:not([class]) th {
+  background: #f3ead7;
+  color: #172033;
+  font-weight: 700;
+}
+
+.md-typeset table:not([class]) th,
+.md-typeset table:not([class]) td {
+  border: 1px solid #c5d0dc;
+  padding: 0.35rem 0.45rem;
+  vertical-align: top;
+}
+
+.md-typeset li,
+.md-typeset td p,
+.md-typeset th p,
+.md-typeset blockquote p {
+  text-indent: 0;
+}
+
+.md-typeset nav,
+.md-typeset nav p {
+  text-indent: 0;
+}
+
+.md-content {
+  max-width: none;
+}

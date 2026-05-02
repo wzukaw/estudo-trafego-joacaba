@@ -1,0 +1,1908 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Estudo de Tráfego V12a">
+      
+      
+      
+      
+        <link rel="prev" href="../08-levantamentos-de-trafego/">
+      
+      
+        <link rel="next" href="../10-apresentacao-dos-cenarios-de-calculo-e-estrutura-dos-resultados/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>09. METODOLOGIA DE MODELAGEM E CENÁRIOS - Estudo de Tráfego - Joaçaba</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/relatorio.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#9-metodologia-de-modelagem-e-cenarios" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href=".." title="Estudo de Tráfego - Joaçaba" class="md-header__button md-logo" aria-label="Estudo de Tráfego - Joaçaba" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Estudo de Tráfego - Joaçaba
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              09. METODOLOGIA DE MODELAGEM E CENÁRIOS
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Estudo de Tráfego - Joaçaba" class="md-nav__button md-logo" aria-label="Estudo de Tráfego - Joaçaba" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Estudo de Tráfego - Joaçaba
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-sumario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sumário
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-apresentacao-e-identificacao-do-estudo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. APRESENTAÇÃO E IDENTIFICAÇÃO DO ESTUDO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-sumario-executivo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. SUMÁRIO EXECUTIVO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-introducao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. INTRODUÇÃO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-objeto-finalidade-e-escopo-do-estudo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. OBJETO, FINALIDADE E ESCOPO DO ESTUDO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-enquadramento-normativo-institucional-e-administrativo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. ENQUADRAMENTO NORMATIVO, INSTITUCIONAL E ADMINISTRATIVO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-area-de-influencia-e-rede-viaria-analisada/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06. ÁREA DE INFLUÊNCIA E REDE VIÁRIA ANALISADA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-caracterizacao-funcional-da-rede-e-criterios-de-leitura-operacional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07. CARACTERIZAÇÃO FUNCIONAL DA REDE E CRITÉRIOS DE LEITURA OPERACIONAL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-levantamentos-de-trafego/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08. LEVANTAMENTOS DE TRÁFEGO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09. METODOLOGIA DE MODELAGEM E CENÁRIOS
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09. METODOLOGIA DE MODELAGEM E CENÁRIOS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#91-estrutura-geral-da-modelagem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 Estrutura geral da modelagem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#92-cenarios-analisados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 Cenários analisados
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#93-trafego-de-fundo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3 Tráfego de fundo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#94-empreendimentos-considerados-e-criterios-de-ocupacao-atual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.4 Empreendimentos considerados e critérios de ocupação atual
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#95-criterio-de-geracao-de-viagens-por-tipologia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.5 Critério de geração de viagens por tipologia
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#96-fatores-de-implantacao-por-horizonte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.6 Fatores de implantação por horizonte
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#97-redistribuicao-espacial-no-sistema-viario-atual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.7 Redistribuição espacial no sistema viário atual
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#98-redistribuicao-espacial-no-sistema-viario-com-intervencoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.8 Redistribuição espacial no sistema viário com intervenções
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#99-pontos-e-intersecoes-considerados-na-distribuicao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.9 Pontos e interseções considerados na distribuição
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#910-tratamento-da-rotatoria-p07-e-dos-fluxos-redistribuidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.10 Tratamento da rotatória P07 e dos fluxos redistribuídos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#911-tratamento-de-lacunas-de-medicao-e-compatibilizacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.11 Tratamento de lacunas de medição e compatibilizações
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#912-avaliacao-operacional-por-modulos-hcm-los" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.12 Avaliação operacional por módulos HCM-LOS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#913-encadeamento-final-da-modelagem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.13 Encadeamento final da modelagem
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-apresentacao-dos-cenarios-de-calculo-e-estrutura-dos-resultados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. APRESENTAÇÃO DOS CENÁRIOS DE CÁLCULO E ESTRUTURA DOS RESULTADOS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-criterios-de-leitura-dos-resultados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. CRITÉRIOS DE LEITURA DOS RESULTADOS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-sistema-viario-atual/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. SISTEMA VIÁRIO ATUAL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-sistema-viario-alterado/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. SISTEMA VIÁRIO ALTERADO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-confronto-entre-sistema-viario-atual-e-sistema-viario-alterado/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. CONFRONTO ENTRE SISTEMA VIÁRIO ATUAL E SISTEMA VIÁRIO ALTERADO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-interpretacao-tecnica-dos-efeitos-observados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. INTERPRETAÇÃO TÉCNICA DOS EFEITOS OBSERVADOS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-conclusao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. CONCLUSÃO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-referencias-tecnicas-e-normativas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. REFERÊNCIAS TÉCNICAS E NORMATIVAS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-anexos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Anexos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#91-estrutura-geral-da-modelagem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 Estrutura geral da modelagem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#92-cenarios-analisados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 Cenários analisados
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#93-trafego-de-fundo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3 Tráfego de fundo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#94-empreendimentos-considerados-e-criterios-de-ocupacao-atual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.4 Empreendimentos considerados e critérios de ocupação atual
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#95-criterio-de-geracao-de-viagens-por-tipologia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.5 Critério de geração de viagens por tipologia
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#96-fatores-de-implantacao-por-horizonte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.6 Fatores de implantação por horizonte
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#97-redistribuicao-espacial-no-sistema-viario-atual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.7 Redistribuição espacial no sistema viário atual
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#98-redistribuicao-espacial-no-sistema-viario-com-intervencoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.8 Redistribuição espacial no sistema viário com intervenções
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#99-pontos-e-intersecoes-considerados-na-distribuicao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.9 Pontos e interseções considerados na distribuição
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#910-tratamento-da-rotatoria-p07-e-dos-fluxos-redistribuidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.10 Tratamento da rotatória P07 e dos fluxos redistribuídos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#911-tratamento-de-lacunas-de-medicao-e-compatibilizacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.11 Tratamento de lacunas de medição e compatibilizações
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#912-avaliacao-operacional-por-modulos-hcm-los" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.12 Avaliação operacional por módulos HCM-LOS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#913-encadeamento-final-da-modelagem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.13 Encadeamento final da modelagem
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p><strong>Navegação:</strong> <a href="../08-levantamentos-de-trafego/">← Anterior</a> | <a href="../00-sumario/">Sumário</a> | <a href="../10-apresentacao-dos-cenarios-de-calculo-e-estrutura-dos-resultados/">Próximo →</a></p>
+<h1 id="9-metodologia-de-modelagem-e-cenarios">9. METODOLOGIA DE MODELAGEM E CENÁRIOS<a class="headerlink" href="#9-metodologia-de-modelagem-e-cenarios" title="Permanent link">&para;</a></h1>
+<h2 id="91-estrutura-geral-da-modelagem">9.1 Estrutura geral da modelagem<a class="headerlink" href="#91-estrutura-geral-da-modelagem" title="Permanent link">&para;</a></h2>
+<p>A modelagem organiza os volumes de campo, o crescimento tendencial, a geração incremental dos empreendimentos e os parâmetros operacionais HCM-LOS em uma cadeia única de cálculo. Essa cadeia permite comparar o sistema viário atual e o sistema viário alterado sob os mesmos horizontes e premissas de demanda.</p>
+<table>
+<thead>
+<tr>
+<th>Etapa</th>
+<th>Conteúdo</th>
+<th>Fonte principal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Levantamentos</td>
+<td>Contagens classificatórias e direcionais por ponto</td>
+<td>Capítulo 8 e planilhas de contagem</td>
+</tr>
+<tr>
+<td>Tráfego de fundo</td>
+<td>Crescimento geométrico anual</td>
+<td>Premissas registradas na base técnica e planilhas de cálculo</td>
+</tr>
+<tr>
+<td>Geração incremental</td>
+<td>Viagens associadas aos dez empreendimentos</td>
+<td>Cadastro técnico e metodologia ITE</td>
+</tr>
+<tr>
+<td>Distribuição</td>
+<td>Alocação dos fluxos por trecho, faixa, aproximação e movimento</td>
+<td>Matrizes e arquivos HCM-LOS</td>
+</tr>
+<tr>
+<td>Avaliação operacional</td>
+<td>Capacidade, atraso, V/C e LOS</td>
+<td>Planilhas HCM-LOS de segmentos, interseções e rotatória</td>
+</tr>
+<tr>
+<td>Confronto</td>
+<td>Comparação entre sistema atual e alterado</td>
+<td>Capítulos 10, 11 e 12</td>
+</tr>
+</tbody>
+</table>
+<p class="legenda">Tabela 9.1 - Estrutura geral da modelagem</p>
+
+<h2 id="92-cenarios-analisados">9.2 Cenários analisados<a class="headerlink" href="#92-cenarios-analisados" title="Permanent link">&para;</a></h2>
+<p>O estudo distingue a malha atual, a malha alterada e os cenários de demanda aplicados a cada uma. A comparação operacional principal utiliza o cenário A2, isto é, tendencial acrescido do incremento dos empreendimentos.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Descrição</th>
+<th>Uso no estudo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A0</td>
+<td>Observado/base</td>
+<td>Calibração de volumes e referência de campo</td>
+</tr>
+<tr>
+<td>A1</td>
+<td>Tendencial</td>
+<td>Crescimento de fundo sem novos empreendimentos modelados</td>
+</tr>
+<tr>
+<td>A2</td>
+<td>Tendencial + empreendimento</td>
+<td>Cenário principal dos resultados dos capítulos 10 a 12</td>
+</tr>
+<tr>
+<td>A3</td>
+<td>Sensibilidade/pipeline</td>
+<td>Fora do corpo principal, salvo estudo complementar</td>
+</tr>
+</tbody>
+</table>
+<p class="legenda">Tabela 9.2 - Cenários de demanda e uso no estudo</p>
+
+<h2 id="93-trafego-de-fundo">9.3 Tráfego de fundo<a class="headerlink" href="#93-trafego-de-fundo" title="Permanent link">&para;</a></h2>
+<p>O tráfego de fundo corresponde ao crescimento natural da circulação viária, independentemente da geração incremental atribuída aos empreendimentos considerados no estudo. Para sua estimativa, adotou-se crescimento geométrico da frota veicular à taxa de 2,14% ao ano, aplicado sobre a demanda de base antes da incorporação dos incrementos de tráfego provenientes dos empreendimentos.</p>
+<table>
+<thead>
+<tr>
+<th>Parâmetro</th>
+<th>Valor ou critério</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tipo de crescimento</td>
+<td>Geométrico</td>
+</tr>
+<tr>
+<td>Taxa anual registrada</td>
+<td>2,14 % a.a.</td>
+</tr>
+<tr>
+<td>Horizontes</td>
+<td>5, 10 e 15 anos</td>
+</tr>
+<tr>
+<td>Aplicação</td>
+<td>Projeção do tráfego de base antes da soma do incremento dos empreendimentos</td>
+</tr>
+</tbody>
+</table>
+<p class="legenda">Tabela 9.3 - Tratamento do tráfego de fundo</p>
+
+<h2 id="94-empreendimentos-considerados-e-criterios-de-ocupacao-atual">9.4 Empreendimentos considerados e critérios de ocupação atual<a class="headerlink" href="#94-empreendimentos-considerados-e-criterios-de-ocupacao-atual" title="Permanent link">&para;</a></h2>
+<p>Foram considerados dez empreendimentos cadastrados na base vigente do estudo, sendo quatro de uso misto e seis exclusivamente residenciais. Para todos os casos, a ocupação atualmente existente foi tratada como demanda já incorporada à rede viária na condição de referência, motivo pelo qual não foi novamente computada como incremento nos horizontes de 5, 10 e 15 anos.</p>
+<p>Dessa forma, a geração incremental adotada na modelagem corresponde exclusivamente à parcela ainda não ocupada de cada empreendimento. Operacionalmente, o fluxo bruto potencial foi abatido da ocupação atual observada, resultando no fluxo líquido remanescente efetivamente considerado nas projeções do cenário tendencial acrescido dos empreendimentos.</p>
+<table>
+<thead>
+<tr>
+<th>Empreendimento</th>
+<th>Tipo</th>
+<th>Classificação</th>
+<th>Lotes</th>
+<th>Área de lotes (m²)</th>
+<th>Ocupação atual (%)</th>
+<th>Fluxo bruto (veic/h)</th>
+<th>Fluxo absorvido pela ocupação atual (veic/h)</th>
+<th>Fluxo líquido considerado (veic/h)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nossa Senhora de Fátima</td>
+<td>Loteamento</td>
+<td>Misto</td>
+<td>138</td>
+<td>52.440,00</td>
+<td>5</td>
+<td>315,74</td>
+<td>15,79</td>
+<td>299,96</td>
+</tr>
+<tr>
+<td>Brisas do Vale III</td>
+<td>Loteamento</td>
+<td>Residencial</td>
+<td>99</td>
+<td>19.380,00</td>
+<td>70</td>
+<td>934,56</td>
+<td>654,19</td>
+<td>280,37</td>
+</tr>
+<tr>
+<td>Brisas do Vale IV</td>
+<td>Loteamento</td>
+<td>Residencial</td>
+<td>99</td>
+<td>37.620,00</td>
+<td>80</td>
+<td>934,56</td>
+<td>747,65</td>
+<td>186,91</td>
+</tr>
+<tr>
+<td>Jardim Europa</td>
+<td>Loteamento</td>
+<td>Residencial</td>
+<td>92</td>
+<td>34.960,00</td>
+<td>75</td>
+<td>868,48</td>
+<td>651,36</td>
+<td>217,12</td>
+</tr>
+<tr>
+<td>Brisas do Vale I</td>
+<td>Loteamento</td>
+<td>Residencial</td>
+<td>138</td>
+<td>52.440,00</td>
+<td>80</td>
+<td>1.302,72</td>
+<td>1.042,18</td>
+<td>260,54</td>
+</tr>
+<tr>
+<td>Brisas do Vale II</td>
+<td>Loteamento</td>
+<td>Residencial</td>
+<td>142</td>
+<td>53.960,00</td>
+<td>60</td>
+<td>1.340,48</td>
+<td>804,29</td>
+<td>536,19</td>
+</tr>
+<tr>
+<td>Verde Vale</td>
+<td>Loteamento</td>
+<td>Residencial</td>
+<td>162</td>
+<td>61.560,00</td>
+<td>5</td>
+<td>1.529,28</td>
+<td>76,46</td>
+<td>1.452,82</td>
+</tr>
+<tr>
+<td>Brisas Celeste</td>
+<td>Loteamento</td>
+<td>Misto</td>
+<td>227</td>
+<td>86.260,00</td>
+<td>0</td>
+<td>450,55</td>
+<td>0,00</td>
+<td>450,55</td>
+</tr>
+<tr>
+<td>Pôr-do-Sol</td>
+<td>Loteamento</td>
+<td>Misto</td>
+<td>63</td>
+<td>23.940,00</td>
+<td>0</td>
+<td>227,71</td>
+<td>0,00</td>
+<td>227,71</td>
+</tr>
+<tr>
+<td>Altos de Joaçaba I e II</td>
+<td>Loteamento</td>
+<td>Misto</td>
+<td>230</td>
+<td>87.400,00</td>
+<td>0</td>
+<td>454,63</td>
+<td>0,00</td>
+<td>454,63</td>
+</tr>
+<tr>
+<td>Total</td>
+<td>-</td>
+<td>-</td>
+<td>1.390</td>
+<td>509.960,00</td>
+<td>-</td>
+<td>8.358,72</td>
+<td>3.991,92</td>
+<td>4.366,80</td>
+</tr>
+</tbody>
+</table>
+<p class="legenda">Tabela 9.4 - Base cadastral dos empreendimentos e saldo líquido considerado na modelagem</p>
+
+<h2 id="95-criterio-de-geracao-de-viagens-por-tipologia">9.5 Critério de geração de viagens por tipologia<a class="headerlink" href="#95-criterio-de-geracao-de-viagens-por-tipologia" title="Permanent link">&para;</a></h2>
+<p>Nos empreendimentos classificados como mistos, a distribuição interna dos usos foi adotada como estimativa válida para fins do presente estudo, considerando que o zoneamento aplicável admite a implantação de usos mistos. Assim, para efeito de cálculo, estimou-se a composição de ocupação apresentada na tabela, a partir da distribuição percentual cadastrada e de taxas de geração compatíveis com a lógica metodológica adotada com base no ITE.</p>
+<p>Os empreendimentos exclusivamente residenciais foram tratados pela taxa-padrão de 9,44 viagens por lote ou unidade, sempre com desconto prévio da ocupação atual já existente.</p>
+<table>
+<thead>
+<tr>
+<th>Componente do uso misto</th>
+<th>Participação adotada</th>
+<th>Taxa usada</th>
+<th>Base</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Residencial unifamiliar</td>
+<td>70 %</td>
+<td>0,85</td>
+<td>UH</td>
+</tr>
+<tr>
+<td>Residencial multifamiliar</td>
+<td>13 %</td>
+<td>0,70</td>
+<td>UH</td>
+</tr>
+<tr>
+<td>Comercial, varejo e serviços</td>
+<td>5 %</td>
+<td>4,00</td>
+<td>100 m²</td>
+</tr>
+<tr>
+<td>Escritórios</td>
+<td>5 %</td>
+<td>2,00</td>
+<td>100 m²</td>
+</tr>
+<tr>
+<td>Escola, creche ou institucional</td>
+<td>3 %</td>
+<td>0,30</td>
+<td>aluno</td>
+</tr>
+<tr>
+<td>Hotelaria</td>
+<td>2 %</td>
+<td>0,65</td>
+<td>quarto</td>
+</tr>
+<tr>
+<td>Institucional leve</td>
+<td>2 %</td>
+<td>1,50</td>
+<td>100 m²</td>
+</tr>
+</tbody>
+</table>
+<p class="legenda">Tabela 9.5 - Composição e taxas adotadas para empreendimentos de uso misto</p>
+
+<table>
+<thead>
+<tr>
+<th>Empreendimento</th>
+<th>Residencial unifamiliar</th>
+<th>Residencial multifamiliar</th>
+<th>Comercial, varejo e serviços</th>
+<th>Escritórios</th>
+<th>Escola, creche ou institucional</th>
+<th>Hotelaria</th>
+<th>Institucional leve</th>
+<th>Ocupação atual (%)</th>
+<th>Total líquido considerado (veic/h)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nossa Senhora de Fátima</td>
+<td>120,13</td>
+<td>75,35</td>
+<td>27,60</td>
+<td>13,80</td>
+<td>60,90</td>
+<td>13,00</td>
+<td>4,97</td>
+<td>5</td>
+<td>299,96</td>
+</tr>
+<tr>
+<td>Brisas Celeste</td>
+<td>197,60</td>
+<td>110,85</td>
+<td>40,60</td>
+<td>20,30</td>
+<td>60,90</td>
+<td>13,00</td>
+<td>7,31</td>
+<td>0</td>
+<td>450,55</td>
+</tr>
+<tr>
+<td>Pôr-do-Sol</td>
+<td>54,84</td>
+<td>30,76</td>
+<td>40,60</td>
+<td>20,30</td>
+<td>60,90</td>
+<td>13,00</td>
+<td>7,31</td>
+<td>0</td>
+<td>227,71</td>
+</tr>
+<tr>
+<td>Altos de Joaçaba I e II</td>
+<td>200,21</td>
+<td>112,31</td>
+<td>40,60</td>
+<td>20,30</td>
+<td>60,90</td>
+<td>13,00</td>
+<td>7,31</td>
+<td>0</td>
+<td>454,63</td>
+</tr>
+</tbody>
+</table>
+<p class="legenda">Tabela 9.6 - Resultado líquido cadastrado para os empreendimentos mistos</p>
+
+<table>
+<thead>
+<tr>
+<th>Empreendimento</th>
+<th>Lotes</th>
+<th>Ocupação atual (%)</th>
+<th>Taxa usada (viagens/lote)</th>
+<th>Fluxo líquido considerado (veic/h)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Brisas do Vale III</td>
+<td>99</td>
+<td>70</td>
+<td>9,44</td>
+<td>280,37</td>
+</tr>
+<tr>
+<td>Brisas do Vale IV</td>
+<td>99</td>
+<td>80</td>
+<td>9,44</td>
+<td>186,91</td>
+</tr>
+<tr>
+<td>Jardim Europa</td>
+<td>92</td>
+<td>75</td>
+<td>9,44</td>
+<td>217,12</td>
+</tr>
+<tr>
+<td>Brisas do Vale I</td>
+<td>138</td>
+<td>80</td>
+<td>9,44</td>
+<td>260,54</td>
+</tr>
+<tr>
+<td>Brisas do Vale II</td>
+<td>142</td>
+<td>60</td>
+<td>9,44</td>
+<td>536,19</td>
+</tr>
+<tr>
+<td>Verde Vale</td>
+<td>162</td>
+<td>5</td>
+<td>9,44</td>
+<td>1.452,82</td>
+</tr>
+</tbody>
+</table>
+<p class="legenda">Tabela 9.7 - Resultado líquido cadastrado para os empreendimentos exclusivamente residenciais</p>
+
+<h2 id="96-fatores-de-implantacao-por-horizonte">9.6 Fatores de implantação por horizonte<a class="headerlink" href="#96-fatores-de-implantacao-por-horizonte" title="Permanent link">&para;</a></h2>
+<p>Os fatores de implantação representam a parcela do saldo líquido remanescente considerada em cada horizonte de projeção. Esses percentuais foram aplicados uniformemente à base de empreendimentos cadastrada, sempre sobre o fluxo líquido não ocupado.</p>
+<table>
+<thead>
+<tr>
+<th>Horizonte</th>
+<th>Parcela do saldo líquido considerada</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5 anos</td>
+<td>25 %</td>
+</tr>
+<tr>
+<td>10 anos</td>
+<td>55 %</td>
+</tr>
+<tr>
+<td>15 anos</td>
+<td>100 %</td>
+</tr>
+</tbody>
+</table>
+<p class="legenda">Tabela 9.8 - Fatores de implantação progressiva adotados na modelagem</p>
+
+<h2 id="97-redistribuicao-espacial-no-sistema-viario-atual">9.7 Redistribuição espacial no sistema viário atual<a class="headerlink" href="#97-redistribuicao-espacial-no-sistema-viario-atual" title="Permanent link">&para;</a></h2>
+<p>No sistema viário atual, a alocação da geração incremental foi realizada sobre a malha existente, desconsiderando a implantação da via de interligação entre a Rua Dr. José Firmo Bernardi e a Rua Getúlio Vargas, bem como o papel operacional adicional previsto para a Rua Arvino de Oliveira.</p>
+<p>A redistribuição da demanda foi estimada com base na proporção dos movimentos observados nas contagens classificatórias e direcionais, na posição urbana dos empreendimentos, nas rotas mais prováveis de acesso e saída e na tendência de utilização dos principais corredores de ligação com o setor Oeste.</p>
+<p>Essa redistribuição não corresponde a um rateio único e global por empreendimento. Os percentuais foram aplicados de forma detalhada por segmento viário, sentido de circulação, faixa de aproximação, ponto de análise e movimentos específicos nas interseções, de modo a representar com maior aderência a lógica operacional de cada local modelado.</p>
+<p>Em determinados trechos e movimentos, as parcelas de demanda podem se sobrepor, refletindo a convergência natural dos fluxos para rotas preferenciais e a tendência de utilização simultânea de determinados eixos viários pelos empreendimentos analisados.</p>
+<table>
+<thead>
+<tr>
+<th>Local</th>
+<th>Empreendimentos e percentuais considerados</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rua Albino Holsbach</td>
+<td>Todos os principais empreendimentos com faixas de 30 %, 70 % e 100 %; Brisas do Vale IV e Verde Vale também com 15 % e 30 %</td>
+</tr>
+<tr>
+<td>Rua Dr. José Firmo Bernardi</td>
+<td>Maioria dos empreendimentos com 10 %, 20 %, 30 %, 60 %, 70 % e 100 %; Brisas do Vale IV e Verde Vale também com 15 %, 75 % e 90 %</td>
+</tr>
+<tr>
+<td>Rua Getúlio Vargas</td>
+<td>Nossa Senhora de Fátima com 14 %, 15 %, 35 %, 60 % e 70 %; Brisas do Vale III, I e II com 20 %, 50 % e 75 %; Brisas do Vale IV com 20 %, 40 % e 90 %; Jardim Europa com 30 %, 75 % e 90 %; Verde Vale com 20 % e 40 %; Brisas Celeste com 14 %, 15 %, 50 % e 60 %; Pôr-do-Sol com 30 %, 75 % e 90 %; Altos de Joaçaba I e II com 20 %, 75 % e 90 %</td>
+</tr>
+<tr>
+<td>Rua Guilherme Lugisland</td>
+<td>Maioria dos empreendimentos com 5 %, 35 %, 70 % e 80 %; Brisas do Vale IV e Verde Vale também com 10 %, 15 %, 30 % e 60 %; Nossa Senhora de Fátima com 5 %, 35 %, 60 %, 70 % e 80 %</td>
+</tr>
+<tr>
+<td>Rua Sete de Setembro</td>
+<td>Maioria dos empreendimentos com 15 %, 55 % e 70 %; Brisas do Vale IV e Verde Vale com 25 %, 60 % e 70 %; Nossa Senhora de Fátima com 15 %, 45 % e 70 %</td>
+</tr>
+</tbody>
+</table>
+<p class="legenda">Tabela 9.9 - Critério de redistribuição da demanda no sistema viário atual</p>
+
+<h2 id="98-redistribuicao-espacial-no-sistema-viario-com-intervencoes">9.8 Redistribuição espacial no sistema viário com intervenções<a class="headerlink" href="#98-redistribuicao-espacial-no-sistema-viario-com-intervencoes" title="Permanent link">&para;</a></h2>
+<p>No sistema viário alterado, a alocação da geração incremental foi reavaliada considerando a nova configuração operacional da malha, com a implantação da via de interligação entre a Rua Dr. José Firmo Bernardi e a Rua Getúlio Vargas, a alteração de sentido em trecho da Rua Dr. José Firmo Bernardi e a requalificação da Rua Arvino de Oliveira.</p>
+<p>A redistribuição da demanda foi estimada com base nas contagens classificatórias e direcionais observadas, nas proporções de movimento adotadas na modelagem, na nova conectividade proporcionada pelas intervenções, na geometria funcional da rede e na posição relativa dos empreendimentos em relação às rotas prováveis de acesso e dispersão.</p>
+<p>Essa etapa não corresponde a uma simples reaplicação dos percentuais adotados para o sistema viário atual. Os pesos foram reavaliados de forma detalhada por segmento viário, sentido de circulação, aproximação, ponto de análise e movimentos específicos nas interseções, de modo a representar os efeitos operacionais decorrentes das intervenções propostas.</p>
+<p>Nesse cenário, parte dos fluxos incrementais passa a utilizar rotas antes inexistentes ou pouco prováveis, alterando a distribuição da demanda entre os eixos viários analisados. Em determinados trechos e movimentos, as parcelas de tráfego também podem se sobrepor, refletindo a convergência natural dos fluxos para rotas preferenciais e a reorganização da circulação a partir da nova estrutura viária proposta.</p>
+<table>
+<thead>
+<tr>
+<th>Local</th>
+<th>Empreendimentos e percentuais considerados</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rua Albino Holsbach</td>
+<td>Altos de Joaçaba I e II com 20 %; Brisas Celeste com 5 %; Brisas do Vale I, II e III com 20 % e 50 %; Brisas do Vale IV com 10 %, 20 % e 30 %; Jardim Europa com 5 %; Nossa Senhora de Fátima com 5 %; Pôr-do-Sol com 10 %; Verde Vale com 5 %, 10 % e 20 %</td>
+</tr>
+<tr>
+<td>Rua Dr. José Firmo Bernardi alterada</td>
+<td>Nossa Senhora de Fátima com 2 %, 5 %, 28 %, 30 %, 40 %, 50 %, 55 % e 70 %; Brisas Celeste com 5 %, 23 %, 40 %, 41 %, 45 % e 60 %; Brisas do Vale I, II e III com 45 %, 50 %, 80 %, 85 % e 100 %; Brisas do Vale IV com 10 %, 20 %, 30 %, 60 % e 85 %; Jardim Europa com 5 %, 10 %, 30 %, 55 %, 60 % e 90 %; Pôr-do-Sol com 5 %, 10 %, 30 %, 45 %, 50 %, 60 % e 90 %; Altos de Joaçaba I e II com 5 %, 10 %, 20 %, 50 %, 70 %, 80 % e 100 %; Verde Vale com 5 %, 10 %, 20 %, 70 % e 85 %</td>
+</tr>
+<tr>
+<td>Rua Getúlio Vargas com implantação da via e Rua Arvino</td>
+<td>Todos os empreendimentos com 30 %, 35 % e 80 %</td>
+</tr>
+<tr>
+<td>Rua Guilherme Lugisland com intervenção</td>
+<td>Altos de Joaçaba I e II com 5 % e 15 %; Brisas Celeste com 5 % e 10 %; Brisas do Vale I, II e III com 5 %, 10 %, 15 %, 20 % e 65 %; Brisas do Vale IV com 10 %, 15 %, 20 %, 45 % e 90 %; Jardim Europa com 5 %, 10 % e 15 %; Nossa Senhora de Fátima com 5 % e 10 %; Pôr-do-Sol com 5 %, 10 % e 15 %; Verde Vale com 5 %, 10 %, 15 %, 20 %, 35 % e 90 %</td>
+</tr>
+<tr>
+<td>Rua Sete de Setembro com intervenção</td>
+<td>Altos de Joaçaba I e II com 70 %; Brisas Celeste com 40 % e 41 %; Brisas do Vale I, II e III com 20 % e 80 %; Brisas do Vale IV com 45 % e 70 %; Jardim Europa com 50 % e 55 %; Nossa Senhora de Fátima com 35 % e 46 %; Pôr-do-Sol com 40 % e 45 %; Verde Vale com 45 %, 50 % e 75 %</td>
+</tr>
+</tbody>
+</table>
+<p class="legenda">Tabela 9.10 - Critério de redistribuição da demanda no sistema viário alterado</p>
+
+<h2 id="99-pontos-e-intersecoes-considerados-na-distribuicao">9.9 Pontos e interseções considerados na distribuição<a class="headerlink" href="#99-pontos-e-intersecoes-considerados-na-distribuicao" title="Permanent link">&para;</a></h2>
+<p>Os incrementos de demanda foram lidos, distribuídos e verificados nos principais segmentos e nós da rede viária modelada, abrangendo os pontos de controle representativos da circulação no setor analisado.</p>
+<p>Nas interseções, a análise preservou a leitura operacional por aproximação, faixa de circulação e movimento direcional, em coerência com a estrutura dos módulos de cálculo utilizados no estudo. Dessa forma, os acréscimos de tráfego não foram tratados apenas como volumes globais por ponto, mas distribuídos conforme a lógica funcional de cada interseção e conforme sua condição de operação no sistema viário atual e no cenário com intervenção.</p>
+<p>A avaliação contemplou tanto os pontos existentes na rede atual quanto aqueles cuja leitura se torna relevante em razão das alterações propostas, especialmente nos locais afetados pela implantação da via de interligação, pela alteração de sentido em trecho da Rua Dr. José Firmo Bernardi e pela requalificação da Rua Arvino de Oliveira.</p>
+<table>
+<thead>
+<tr>
+<th>Ponto</th>
+<th>Vias</th>
+<th>Condição analisada</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ponto 01</td>
+<td>Rua Getúlio Vargas x Rua Guilherme Lugisland</td>
+<td>Atual e com intervenção</td>
+</tr>
+<tr>
+<td>Ponto 02</td>
+<td>Rua Getúlio Vargas x Avenida Barão do Rio Branco</td>
+<td>Atual e com intervenção</td>
+</tr>
+<tr>
+<td>Ponto 03-1</td>
+<td>Rua Dr. José Firmo Bernardi x Rua Projetada/Via de Interligação</td>
+<td>Com intervenção</td>
+</tr>
+<tr>
+<td>Ponto 05</td>
+<td>Rua Dr. José Firmo Bernardi x Rua Albino Holsbach</td>
+<td>Atual e com intervenção</td>
+</tr>
+<tr>
+<td>Ponto 06</td>
+<td>Rua Dr. José Firmo Bernardi x Rua Celso Braz de Carli</td>
+<td>Atual e com intervenção</td>
+</tr>
+<tr>
+<td>Ponto 07</td>
+<td>Rua Sete de Setembro x Rua Guilherme Lugisland x Rua Dr. José Firmo Bernardi</td>
+<td>Atual e com intervenção</td>
+</tr>
+<tr>
+<td>Ponto 08</td>
+<td>Rua Sete de Setembro x Rua Salgado Filho</td>
+<td>Atual e com intervenção</td>
+</tr>
+<tr>
+<td>Ponto 09</td>
+<td>Rua Guilherme Lugisland x Rua Albino Holsbach</td>
+<td>Atual e com intervenção</td>
+</tr>
+<tr>
+<td>Ponto 10</td>
+<td>Rua Guilherme Lugisland x Rua Idalino Machado de Lima</td>
+<td>Atual e com intervenção</td>
+</tr>
+</tbody>
+</table>
+<p class="legenda">Tabela 9.11 - Pontos de análise utilizados na modelagem das interseções</p>
+
+<p>Observação: Para o Ponto 03-1, não há contagem classificatória e direcional específica na condição atual, uma vez que este ponto corresponde à interseção criada pela implantação da via de interligação com a Rua Dr. José Firmo Bernardi. Para fins de composição do fluxo de referência e avaliação operacional, foram utilizadas as contagens dos pontos P03 e P04, localizados no mesmo segmento viário e representativos da circulação existente na Rua Dr. José Firmo Bernardi. Dessa forma, o Ponto 03-1 foi avaliado exclusivamente no cenário com intervenção, considerando sua configuração futura e a redistribuição dos fluxos decorrente da nova conexão viária proposta.</p>
+<h2 id="910-tratamento-da-rotatoria-p07-e-dos-fluxos-redistribuidos">9.10 Tratamento da rotatória P07 e dos fluxos redistribuídos<a class="headerlink" href="#910-tratamento-da-rotatoria-p07-e-dos-fluxos-redistribuidos" title="Permanent link">&para;</a></h2>
+<p>Para a rotatória associada ao Ponto 07, a leitura foi tratada como análise operacional específica do nó viário, articulada às matrizes de distribuição dos segmentos e das interseções adjacentes. Para esse ponto, não foi adotada uma decomposição autônoma por empreendimento equivalente àquela aplicada aos segmentos viários, uma vez que a origem dos incrementos foi rastreada a partir da redistribuição previamente atribuída às aproximações da interseção existente.</p>
+<p>Metodologicamente, a rotatória foi utilizada como ponto de verificação operacional dos resultados da matriz de distribuição, e não como etapa isolada de geração ou alocação de demanda. Assim, a interpretação de seus indicadores depende do encadeamento entre a geração líquida dos empreendimentos, os fatores de implantação progressiva por horizonte e a alocação espacial dos fluxos nos cenários atual e alterado.</p>
+<p>Dessa forma, os segmentos foram avaliados por trecho e faixa de circulação, as interseções por aproximação, faixa e movimento, e a rotatória do Ponto 07 por aproximação e horizonte de análise. As figuras comparativas foram utilizadas apenas como apoio visual à interpretação dos resultados, permanecendo subordinadas aos valores tabulares e aos critérios metodológicos adotados no estudo.</p>
+<table>
+<thead>
+<tr>
+<th>Tipo de elemento</th>
+<th>Chave de leitura</th>
+<th>Uso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Segmentos</td>
+<td>Trecho + faixa</td>
+<td>Resultados por via e confronto entre sistemas</td>
+</tr>
+<tr>
+<td>Interseções</td>
+<td>Aproximação + faixa + movimento</td>
+<td>Resultados por nó e confronto entre sistemas</td>
+</tr>
+<tr>
+<td>Rotatória P07</td>
+<td>Aproximação e horizonte</td>
+<td>Leitura específica da operação da rotatória</td>
+</tr>
+<tr>
+<td>Figuras comparativas</td>
+<td>Pares homólogos ou painéis derivados</td>
+<td>Apoio visual, subordinado aos valores tabulares</td>
+</tr>
+</tbody>
+</table>
+<p class="legenda">Tabela 9.12 - Chaves de leitura e comparação da modelagem</p>
+
+<h2 id="911-tratamento-de-lacunas-de-medicao-e-compatibilizacoes">9.11 Tratamento de lacunas de medição e compatibilizações<a class="headerlink" href="#911-tratamento-de-lacunas-de-medicao-e-compatibilizacoes" title="Permanent link">&para;</a></h2>
+<p>Quando não há medição direta para determinado movimento, aproximação ou trecho, a modelagem utiliza compatibilizações técnicas coerentes com as contagens adjacentes disponíveis, com a estrutura operacional do nó viário e com a lógica funcional da malha analisada.</p>
+<p>Essas compatibilizações têm por finalidade permitir o fechamento operacional do modelo, preservar a consistência da matriz de distribuição e assegurar coerência entre os fluxos de entrada, saída, giro e travessia. Não devem, portanto, ser interpretadas como contagens autônomas, mas como estimativas metodológicas de apoio à avaliação.</p>
+<p>Como critério geral, foi priorizada a utilização de contagens do mesmo nó ou do mesmo corredor, em janela temporal equivalente, sempre que disponíveis. Também foram observadas a consistência direcional dos movimentos, a compatibilidade com o croqui operacional, o balanço dos fluxos no nó e a rastreabilidade da fonte ou do critério utilizado em cada compatibilização relevante.</p>
+<table>
+<thead>
+<tr>
+<th>Princípio</th>
+<th>Aplicação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hierarquia da evidência</td>
+<td>Prioridade a contagens do mesmo nó ou do mesmo corredor em janela equivalente</td>
+</tr>
+<tr>
+<td>Consistência direcional</td>
+<td>Participações de giro e travessia alinhadas ao croqui e ao balanço do nó</td>
+</tr>
+<tr>
+<td>Uso no modelo</td>
+<td>Calibração e coerência de matriz, sem substituir observação futura</td>
+</tr>
+<tr>
+<td>Rastreabilidade</td>
+<td>Registro da fonte ou critério usado para cada compatibilização relevante</td>
+</tr>
+</tbody>
+</table>
+<p class="legenda">Tabela 9.13 - Critérios gerais para lacunas de medição</p>
+
+<h2 id="912-avaliacao-operacional-por-modulos-hcm-los">9.12 Avaliação operacional por módulos HCM-LOS<a class="headerlink" href="#912-avaliacao-operacional-por-modulos-hcm-los" title="Permanent link">&para;</a></h2>
+<p>A avaliação operacional foi realizada por meio de módulos HCM-LOS compatíveis com a natureza de cada elemento analisado, contemplando separadamente os segmentos viários, as interseções e a rotatória associada ao Ponto 07. Essa estrutura permitiu que cada componente da rede fosse avaliado segundo critérios adequados à sua função operacional e ao tipo de resultado necessário para a leitura do desempenho viário.</p>
+<p>Nos segmentos, a capacidade operacional foi sintetizada pela capacidade ajustada de referência, permitindo a comparação do desempenho por trecho, faixa de circulação e horizonte de análise. Nas interseções, a avaliação foi estruturada a partir da capacidade base por movimento, preservando a leitura por aproximação, faixa e movimento direcional. Para a rotatória, foram considerados indicadores específicos por aproximação, além da leitura consolidada do desempenho global do nó.</p>
+<p>A capacidade de referência foi definida com base em parâmetros compatíveis com a metodologia HCM, considerando valores associados à hierarquia funcional das vias analisadas, predominantemente classificadas como locais e coletoras. A partir desses valores-padrão, foram aplicados ajustes e reduções em função das condições físicas e operacionais observadas em campo, incluindo largura da via e das faixas, inclinação longitudinal, ausência ou limitação de segregação para pedestres, presença de estacionamento, interferências laterais, características geométricas e demais condicionantes capazes de reduzir o desempenho da circulação.</p>
+<p>Dessa forma, os cálculos de capacidade viária não foram tratados em capítulos independentes, uma vez que a extensão do estudo já se apresenta significativamente ampla e que tais cálculos estão incorporados diretamente aos resultados operacionais apresentados ao longo do relatório. As abas de processamento foram organizadas conforme o tipo de elemento avaliado, servindo de base para a elaboração das tabelas, gráficos e análises dos capítulos correspondentes.</p>
+<p>Assim, os resultados apresentados já refletem os efeitos da capacidade ajustada, permitindo a leitura direta do desempenho operacional dos segmentos, interseções e nós analisados, sem necessidade de duplicação metodológica em seções específicas adicionais.</p>
+<table>
+<thead>
+<tr>
+<th>Grupo</th>
+<th>Abas principais</th>
+<th>Uso no relatório</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Segmentos</td>
+<td>Resumo_Faixas, Cenario_Final_Segmento, horizontes_5,10e15</td>
+<td>Tabelas e gráficos dos capítulos 10, 11 e 12</td>
+</tr>
+<tr>
+<td>Interseções</td>
+<td>00_Painel_Resultado, 09_Resultados_por_Faixa, 10_Resultados_por_Aproximacao, horizontes_5,10e15</td>
+<td>Resultados por nó e movimentos críticos</td>
+</tr>
+<tr>
+<td>Rotatória P07</td>
+<td>09_Resultados_Aproximacao, 10_Resumo_operacional, 11_Horizontes_Comparativo, 13_gráficos</td>
+<td>Leitura específica da rotatória</td>
+</tr>
+</tbody>
+</table>
+<p class="legenda">Tabela 9.14 - Abas principais para avaliação operacional</p>
+
+<h2 id="913-encadeamento-final-da-modelagem">9.13 Encadeamento final da modelagem<a class="headerlink" href="#913-encadeamento-final-da-modelagem" title="Permanent link">&para;</a></h2>
+<p>O encadeamento final parte dos volumes observados, aplica o tráfego de fundo, soma a geração incremental líquida ponderada pelos fatores de implantação e processa os resultados nas planilhas HCM-LOS. Em seguida, a demanda é distribuída conforme os percentuais e rotas prováveis definidos para cada cenário de rede, produzindo os quadros de segmentos, interseções e rotatória apresentados nos capítulos seguintes.</p>
+<p>Os Capítulos 10 e 11 apresentam os resultados separados por sistema viário atual e sistema viário alterado; o Capítulo 12 confronta os pares homólogos; o Capítulo 13 interpreta os efeitos observados.</p>
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-067-9fbe551289b5.png" /></p>
+<p class="legenda">Gráfico 9.1 - Encadeamento da modelagem de demanda e avaliação operacional</p>
+
+<p><strong>Navegação:</strong> <a href="../08-levantamentos-de-trafego/">← Anterior</a> | <a href="../00-sumario/">Sumário</a> | <a href="../10-apresentacao-dos-cenarios-de-calculo-e-estrutura-dos-resultados/">Próximo →</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.top", "toc.follow", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

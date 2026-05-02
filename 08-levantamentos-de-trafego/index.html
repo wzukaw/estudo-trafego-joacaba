@@ -1,0 +1,1736 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Estudo de Tráfego V12a">
+      
+      
+      
+      
+        <link rel="prev" href="../07-caracterizacao-funcional-da-rede-e-criterios-de-leitura-operacional/">
+      
+      
+        <link rel="next" href="../09-metodologia-de-modelagem-e-cenarios/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>08. LEVANTAMENTOS DE TRÁFEGO - Estudo de Tráfego - Joaçaba</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/relatorio.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#8-levantamentos-de-trafego" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href=".." title="Estudo de Tráfego - Joaçaba" class="md-header__button md-logo" aria-label="Estudo de Tráfego - Joaçaba" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Estudo de Tráfego - Joaçaba
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              08. LEVANTAMENTOS DE TRÁFEGO
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Estudo de Tráfego - Joaçaba" class="md-nav__button md-logo" aria-label="Estudo de Tráfego - Joaçaba" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Estudo de Tráfego - Joaçaba
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-sumario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sumário
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-apresentacao-e-identificacao-do-estudo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. APRESENTAÇÃO E IDENTIFICAÇÃO DO ESTUDO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-sumario-executivo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. SUMÁRIO EXECUTIVO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-introducao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. INTRODUÇÃO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-objeto-finalidade-e-escopo-do-estudo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. OBJETO, FINALIDADE E ESCOPO DO ESTUDO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-enquadramento-normativo-institucional-e-administrativo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. ENQUADRAMENTO NORMATIVO, INSTITUCIONAL E ADMINISTRATIVO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-area-de-influencia-e-rede-viaria-analisada/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06. ÁREA DE INFLUÊNCIA E REDE VIÁRIA ANALISADA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-caracterizacao-funcional-da-rede-e-criterios-de-leitura-operacional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07. CARACTERIZAÇÃO FUNCIONAL DA REDE E CRITÉRIOS DE LEITURA OPERACIONAL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08. LEVANTAMENTOS DE TRÁFEGO
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08. LEVANTAMENTOS DE TRÁFEGO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#81-metodologia-dos-levantamentos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 Metodologia dos levantamentos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#82-datas-periodos-unidades-e-classificacao-veicular" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Datas, períodos, unidades e classificação veicular
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#83-conversao-em-ucp-e-criterios-adotados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 Conversão em UCP e critérios adotados
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#84-apresentacao-sintetica-dos-pontos-de-contagem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4 Apresentação sintética dos pontos de contagem
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.4 Apresentação sintética dos pontos de contagem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#841-criterio-de-leitura-das-contagens-volumetricas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4.1 Critério de leitura das contagens volumétricas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#842-p01" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4.2 P01
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#843-p02" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4.3 P02
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#844-p03" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4.4 P03
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#845-p04" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4.5 P04
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#846-p05" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4.6 P05
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#847-p06" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4.7 P06
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#848-p07" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4.8 P07
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#849-p08" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4.9 P08
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8410-p09" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4.10 P09
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8411-p10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4.11 P10
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#85-sintese-diagnostica-dos-levantamentos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.5 Síntese diagnóstica dos levantamentos
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-metodologia-de-modelagem-e-cenarios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09. METODOLOGIA DE MODELAGEM E CENÁRIOS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-apresentacao-dos-cenarios-de-calculo-e-estrutura-dos-resultados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. APRESENTAÇÃO DOS CENÁRIOS DE CÁLCULO E ESTRUTURA DOS RESULTADOS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-criterios-de-leitura-dos-resultados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. CRITÉRIOS DE LEITURA DOS RESULTADOS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-sistema-viario-atual/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. SISTEMA VIÁRIO ATUAL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-sistema-viario-alterado/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. SISTEMA VIÁRIO ALTERADO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-confronto-entre-sistema-viario-atual-e-sistema-viario-alterado/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. CONFRONTO ENTRE SISTEMA VIÁRIO ATUAL E SISTEMA VIÁRIO ALTERADO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-interpretacao-tecnica-dos-efeitos-observados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. INTERPRETAÇÃO TÉCNICA DOS EFEITOS OBSERVADOS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-conclusao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. CONCLUSÃO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-referencias-tecnicas-e-normativas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. REFERÊNCIAS TÉCNICAS E NORMATIVAS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-anexos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Anexos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#81-metodologia-dos-levantamentos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 Metodologia dos levantamentos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#82-datas-periodos-unidades-e-classificacao-veicular" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Datas, períodos, unidades e classificação veicular
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#83-conversao-em-ucp-e-criterios-adotados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 Conversão em UCP e critérios adotados
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#84-apresentacao-sintetica-dos-pontos-de-contagem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4 Apresentação sintética dos pontos de contagem
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.4 Apresentação sintética dos pontos de contagem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#841-criterio-de-leitura-das-contagens-volumetricas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4.1 Critério de leitura das contagens volumétricas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#842-p01" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4.2 P01
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#843-p02" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4.3 P02
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#844-p03" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4.4 P03
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#845-p04" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4.5 P04
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#846-p05" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4.6 P05
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#847-p06" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4.7 P06
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#848-p07" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4.8 P07
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#849-p08" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4.9 P08
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8410-p09" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4.10 P09
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8411-p10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4.11 P10
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#85-sintese-diagnostica-dos-levantamentos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.5 Síntese diagnóstica dos levantamentos
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p><strong>Navegação:</strong> <a href="../07-caracterizacao-funcional-da-rede-e-criterios-de-leitura-operacional/">← Anterior</a> | <a href="../00-sumario/">Sumário</a> | <a href="../09-metodologia-de-modelagem-e-cenarios/">Próximo →</a></p>
+<h1 id="8-levantamentos-de-trafego">8. LEVANTAMENTOS DE TRÁFEGO<a class="headerlink" href="#8-levantamentos-de-trafego" title="Permanent link">&para;</a></h1>
+<h2 id="81-metodologia-dos-levantamentos">8.1 Metodologia dos levantamentos<a class="headerlink" href="#81-metodologia-dos-levantamentos" title="Permanent link">&para;</a></h2>
+<p>Os levantamentos de tráfego foram organizados por estações de contagem, com consolidação em planilhas específicas por ponto. O estudo registra contagens classificatórias e direcionais, com tratamento por movimento, classe veicular, UCP e período de observação. Em parte dos pontos, o levantamento corresponde a janela contínua de 24 horas; 12 horas e em outros, corresponde a janelas de curta duração com projeção para uma hora.</p>
+<table>
+<thead>
+<tr>
+<th>Aspecto</th>
+<th>Especificação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tipo de levantamento</td>
+<td>Contagem classificatória e direcional</td>
+</tr>
+<tr>
+<td>Unidade de análise</td>
+<td>Veículos e UCP, quando aplicável</td>
+</tr>
+<tr>
+<td>Período</td>
+<td>24 h contínuas ou janelas com projeção para 1 h, conforme arquivo de origem</td>
+</tr>
+<tr>
+<td>Classes veiculares</td>
+<td>Motocicleta, veículo leve, caminhão pequeno, caminhão médio, Ônibus urbano e caminhão pesado articulado</td>
+</tr>
+<tr>
+<td>Direcionalidade</td>
+<td>Movimentos A-B, B-C, A-C ou equivalentes, conforme croqui de cada estação</td>
+</tr>
+<tr>
+<td>Consolidação</td>
+<td>Planilhas por ponto de contagem, com abas de fluxos, UCP, perfis horários e gráficos quando disponíveis</td>
+</tr>
+</tbody>
+</table>
+<p class="legenda">Tabela 8.1 - Especificação geral dos levantamentos de tráfego</p>
+
+<p>Os volumes de campo alimentam a calibração dos movimentos nos arquivos HCM-LOS. Quando não existe medição direta para determinado movimento ou trecho, o tratamento de lacunas e compatibilizações é descrito no Capítulo 9, sem transformar estimativas de fechamento operacional em contagens autônomas.</p>
+<h2 id="82-datas-periodos-unidades-e-classificacao-veicular">8.2 Datas, períodos, unidades e classificação veicular<a class="headerlink" href="#82-datas-periodos-unidades-e-classificacao-veicular" title="Permanent link">&para;</a></h2>
+<p>A estrutura dos arquivos de contagem varia conforme o ponto. Os pontos P01, P03, P04, P06 e P07 possuem planilhas consolidadas em formato semelhante, com abas como Geral_Fluxos, Por_Hora_UCP, Tabela final - conversão UCP e aba de gráficos. Os pontos P05, P09 e P10 usam estrutura própria, com dados consolidados por movimentos, classes veiculares e horários de pico.</p>
+<table>
+<thead>
+<tr>
+<th>Estação</th>
+<th>Via/interseção</th>
+<th>Arquivo-base</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P01</td>
+<td>Rua Getúlio Vargas x Rua Guilherme Lugisland</td>
+<td>pontos de contagem/Ponto 001 - Getúlio x Guilherme/consolidado_24h_grafico_unico.xlsx</td>
+</tr>
+<tr>
+<td>P02</td>
+<td>Rua Getúlio Vargas x Avenida Barão do Rio Branco</td>
+<td>pontos de contagem/Ponto 02 - Rio Branco x Getúlio/4MOB-2924-CVC-TAB-JOACABA-SC-P12.xlsx; P13 quando aplicável</td>
+</tr>
+<tr>
+<td>P03</td>
+<td>Rua Dr. José Firmo Bernardi, em frente ao empreendimento</td>
+<td>pontos de contagem/Ponto 03 - Firmo Bernardi em frente ao empreendimento/Cont.xlsx</td>
+</tr>
+<tr>
+<td>P04</td>
+<td>Rua Dr. José Firmo Bernardi, em frente UNIMED</td>
+<td>pontos de contagem/Ponto 04 - Firmo Bernardi - Em frente UNIMED/unimed_consolidado_24h.xlsx</td>
+</tr>
+<tr>
+<td>P05</td>
+<td>Rua Dr. José Firmo Bernardi x Rua Albino Holsbach</td>
+<td>pontos de contagem/Ponto 05 - Firmo x Albino/JKL_11_03_2025.xlsx; JKL_12_03_2025.xlsx</td>
+</tr>
+<tr>
+<td>P06</td>
+<td>Rua Dr. José Firmo Bernardi x Rua Celso Braz de Carli</td>
+<td>pontos de contagem/Ponto 06 - Firmo x Celso/contagem_veicular_24h_firmo_celso.xlsx</td>
+</tr>
+<tr>
+<td>P07</td>
+<td>Rua Sete de Setembro x Rua Guilherme Lugisland x Rua Dr. José Firmo Bernardi</td>
+<td>pontos de contagem/Ponto 07 - Sete de Setembro/sete_consolidado_24h.xlsx</td>
+</tr>
+<tr>
+<td>P08</td>
+<td>Rua Sete de Setembro x Rua Salgado Filho</td>
+<td>pontos de contagem/Ponto 08 - Sete x Salgado/Sete x salgado_padronizado.xlsx</td>
+</tr>
+<tr>
+<td>P09</td>
+<td>Rua Guilherme Lugisland x Rua Albino Holsbach</td>
+<td>pontos de contagem/Ponto 09 - Guilherme x Albino/GHI_11_03_2025.xlsx; GHI_12_03_2025.xlsx</td>
+</tr>
+<tr>
+<td>P10</td>
+<td>Rua Guilherme Lugisland x Rua Idalino Machado de Lima</td>
+<td>pontos de contagem/Ponto 10 - Guilherme x Idalino/DEF_11_03_2025.xlsx; DEF_12_03_2025.xlsx</td>
+</tr>
+</tbody>
+</table>
+<p class="legenda">Tabela 8.2 - Relação dos arquivos de contagem por estação</p>
+
+<h2 id="83-conversao-em-ucp-e-criterios-adotados">8.3 Conversão em UCP e critérios adotados<a class="headerlink" href="#83-conversao-em-ucp-e-criterios-adotados" title="Permanent link">&para;</a></h2>
+<p>A conversão em UCP segue os fatores registrados nas planilhas de cada ponto. Para os consolidados padronizados, o estudo adota a matriz de fatores abaixo. Quando o fornecedor ou a planilha de origem adota fator próprio, esse fator prevalece na leitura daquele ponto, desde que explicitado.</p>
+<table>
+<thead>
+<tr>
+<th>Classe</th>
+<th>Fator UCP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Motocicleta</td>
+<td>0,5</td>
+</tr>
+<tr>
+<td>Veículo leve</td>
+<td>1,0</td>
+</tr>
+<tr>
+<td>Caminhão pequeno</td>
+<td>1,5</td>
+</tr>
+<tr>
+<td>Caminhão médio</td>
+<td>2,0</td>
+</tr>
+<tr>
+<td>Ônibus urbano</td>
+<td>2,0</td>
+</tr>
+<tr>
+<td>Caminhão pesado articulado</td>
+<td>2,5</td>
+</tr>
+</tbody>
+</table>
+<p class="legenda">Tabela 8.3 - Fatores UCP padrão nos consolidados de contagem</p>
+
+<p>No P08, registra-se ressalva sobre a coluna Total UCP, porque a rotulagem da planilha exige confirmação na aba-fonte. Por isso, os valores do P08 permanecem conforme a planilha e sua leitura quantitativa incorpora essa ressalva.</p>
+<h2 id="84-apresentacao-sintetica-dos-pontos-de-contagem">8.4 Apresentação sintética dos pontos de contagem<a class="headerlink" href="#84-apresentacao-sintetica-dos-pontos-de-contagem" title="Permanent link">&para;</a></h2>
+<p>No corpo principal do estudo, os pontos de contagem são apresentados de forma padronizada, permitindo a comparação entre locais analisados.</p>
+<p>Para cada ponto, são indicados sua localização, o arquivo de origem dos dados, os movimentos predominantes, a forma de utilização no modelo e eventuais observações relevantes.</p>
+<p>As tabelas completas, discriminadas por classe veicular e por movimento, são inseridas no corpo do texto quando apresentam dimensão compatível com a leitura. Quando forem muito extensas, serão apresentadas em formato de imagem legível ou remetidas ao Capítulo 16, destinado à consolidação dos dados complementares.</p>
+<table>
+<thead>
+<tr>
+<th>Ponto</th>
+<th>Local</th>
+<th>Principal leitura</th>
+<th>Uso na modelagem</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P01</td>
+<td>Getúlio Vargas x Guilherme Lugisland</td>
+<td>Movimento B-C e C-B entre os maiores fluxos; ponto de articulação entre Getúlio e malha Oeste</td>
+<td>Calibração do no P01</td>
+</tr>
+<tr>
+<td>P02</td>
+<td>Getúlio Vargas x Avenida Barão do Rio Branco</td>
+<td>Ponto de maior hierarquia no corredor Getúlio; formato 4MOB</td>
+<td>Calibração do nó P02</td>
+</tr>
+<tr>
+<td>P03</td>
+<td>Dr. José Firmo Bernardi, frente ao empreendimento</td>
+<td>Forte assimetria A-B, com 67,1 % no sentido dominante indicado</td>
+<td>Base de trecho e apoio ao P03-1 no cenário alterado</td>
+</tr>
+<tr>
+<td>P04</td>
+<td>Dr. José Firmo Bernardi, frente UNIMED</td>
+<td>Forte assimetria A-B e presença relevante de Ônibus/pesados</td>
+<td>Apoio a leitura de carregamento do eixo Firmo</td>
+</tr>
+<tr>
+<td>P05</td>
+<td>Firmo Bernardi x Albino Holsbach</td>
+<td>Movimentos A-B e B-A concentrando maior volume nas janelas</td>
+<td>Calibração do P05</td>
+</tr>
+<tr>
+<td>P06</td>
+<td>Firmo Bernardi x Celso Braz de Carli</td>
+<td>B-C e A-B entre os maiores fluxos</td>
+<td>Calibração do P06</td>
+</tr>
+<tr>
+<td>P07</td>
+<td>Sete de Setembro x Guilherme Lugisland x Firmo Bernardi</td>
+<td>A-B como maior movimento; no associado a rotatória</td>
+<td>Calibração do P07 e memória da rotatória</td>
+</tr>
+<tr>
+<td>P08</td>
+<td>Sete de Setembro x Salgado Filho</td>
+<td>Movimentos A-D e C-D elevados; ressalva sobre rótulo Total UCP</td>
+<td>Calibração do P08</td>
+</tr>
+<tr>
+<td>P09</td>
+<td>Guilherme Lugisland x Albino Holsbach</td>
+<td>B-A dominante nos dois dias registrados</td>
+<td>Calibração do P09</td>
+</tr>
+<tr>
+<td>P10</td>
+<td>Guilherme Lugisland x Idalino Machado de Lima</td>
+<td>Volumes moderados frente aos eixos principais</td>
+<td>Calibração do P10</td>
+</tr>
+</tbody>
+</table>
+<p class="legenda">Tabela 8.4 - Síntese operacional dos pontos de contagem</p>
+
+<p>As figuras apresentadas a seguir indicam a localização dos pontos de contagem e os sentidos de movimento considerados em cada interseção ou trecho analisado.</p>
+<p>As letras inseridas nas imagens identificam os ramos, aproximações e sentidos de circulação utilizados para organizar os movimentos veiculares registrados em campo.</p>
+<p>Essa identificação permite relacionar as figuras às tabelas de contagem, às planilhas de cálculo e às memórias técnicas do estudo, mantendo uma leitura padronizada entre a representação gráfica e os dados utilizados na análise.</p>
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-009-e3efb9394d75.png" /></p>
+<p class="legenda">Figura 8.1 - Localização do ponto de contagem P01</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-010-3cf8d4b5076a.png" /></p>
+<p class="legenda">Figura 8.2 - Localização do ponto de contagem P02</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-011-ca9cefbafa41.png" /></p>
+<p class="legenda">Figura 8.3 - Localização do ponto de contagem P03</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-012-26362c79c680.png" /></p>
+<p class="legenda">Figura 8.4 - Localização do ponto de contagem P04</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-013-a19e663ba4c6.png" /></p>
+<p class="legenda">Figura 8.5 - Localização do ponto de contagem P05</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-014-5cc92761b028.png" /></p>
+<p class="legenda">Figura 8.6 - Localização do ponto de contagem P06</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-015-206e05905695.png" /></p>
+<p class="legenda">Figura 8.7 - Localização do ponto de contagem P07</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-016-6451930c9bb1.png" /></p>
+<p class="legenda">Figura 8.8 - Localização do ponto de contagem P08</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-017-c143abf19311.png" /></p>
+<p class="legenda">Figura 8.9 - Localização do ponto de contagem P09</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-018-6ed9a1a57606.png" />
+,</p>
+<p class="legenda">Figura 8.10 - Localização do ponto de contagem P10</p>
+
+<h3 id="841-criterio-de-leitura-das-contagens-volumetricas">8.4.1 Critério de leitura das contagens volumétricas<a class="headerlink" href="#841-criterio-de-leitura-das-contagens-volumetricas" title="Permanent link">&para;</a></h3>
+<p>As contagens volumétricas, classificatórias e direcionais utilizadas no estudo foram realizadas em diferentes pontos da rede viária, em datas e períodos específicos de medição, conforme indicado nos respectivos arquivos de origem.</p>
+<p>Por esse motivo, diferenças de volume entre segmentos de um mesmo eixo viário, ou entre pontos próximos da rede, decorrem das condições próprias de cada levantamento, especialmente data, horário, localização do ponto, sentido analisado e movimentos intermediários existentes entre os pontos de medição.</p>
+<p>Nos levantamentos realizados fora do período escolar, como no caso da medição de 22/01/2025, os valores em UCP foram ajustados com acréscimo de 15%. Esse ajuste foi aplicado para representar a condição típica de operação em período letivo, considerando a influência dos deslocamentos escolares e universitários sobre a circulação local.</p>
+<p>Assim, a leitura das contagens considera os valores registrados em campo, o contexto temporal de cada medição e os ajustes técnicos aplicados para padronização da base utilizada na modelagem.</p>
+<h3 id="842-p01">8.4.2 P01<a class="headerlink" href="#842-p01" title="Permanent link">&para;</a></h3>
+<p>Link para xlsx: <a href="https://drive.google.com/file/d/1UtKt7TILsGQ1U_6lMlMXapP8jyFw6fpK/view?usp=sharing">Ponto_01_contagem_24h.xlsx</a> (<a href="https://drive.google.com/uc?id=1UtKt7TILsGQ1U_6lMlMXapP8jyFw6fpK&amp;export=download">baixar XLSX</a>)</p>
+<p>O P01 representa o entroncamento entre a Rua Getúlio Vargas e a Rua Guilherme Lugisland, com medição realizada em 22/01/2026.</p>
+<p>Os movimentos B-C, C-B e A-B concentram as maiores participações no volume total observado, servindo como referência para a calibração do nó P01 no HCM-LOS.</p>
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-019-e759a6322c4e.png" /></p>
+<p class="legenda">Tabela 8.5 - Volumes totais por movimento e classificação</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-020-26eafaef27b8.png" /></p>
+<p class="legenda">Gráfico 8.1 - Composição veicular</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-021-c23711ef01fb.png" /></p>
+<p class="legenda">Tabela 8.6 - Volume UCP/Hora</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-022-b178a5218ca9.png" /></p>
+<p class="legenda">Gráfico 8.2 - Composição veicular</p>
+
+<h3 id="843-p02">8.4.3 P02<a class="headerlink" href="#843-p02" title="Permanent link">&para;</a></h3>
+<p>Link para xlsx: <a href="https://drive.google.com/file/d/1hPEPnZl808qRQbo8PeCuFaV2wCxL9hfL/view?usp=sharing">Ponto_02_contagem_12h.xlsx</a> (<a href="https://drive.google.com/uc?id=1hPEPnZl808qRQbo8PeCuFaV2wCxL9hfL&amp;export=download">baixar XLSX</a>)</p>
+<p>O P02 corresponde ao entroncamento entre a Rua Getúlio Vargas e a Avenida Barão do Rio Branco, com medição realizada em 26/11/2024.</p>
+<p>Os dados de origem foram recebidos em planilhas 4MOB, com estrutura distinta dos arquivos consolidados em Geral_Fluxos, sendo posteriormente padronizados para o formato adotado no sistema de processamento utilizado neste estudo.</p>
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-023-94bcbd338af2.png" /></p>
+<p class="legenda">Tabela 8.7 - Volumes totais por movimento e classificação</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-024-8637913009ef.png" /></p>
+<p class="legenda">Gráfico 8.3 - Composição veicular</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-025-e3e8af58a672.png" /></p>
+<p class="legenda">Tabela 8.8 - Volume UCP/Hora</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-026-5ffd80181003.png" /></p>
+<p class="legenda">Gráfico 8.4 - Perfil horário de fluxo e UCP</p>
+
+<h3 id="844-p03">8.4.4 P03<a class="headerlink" href="#844-p03" title="Permanent link">&para;</a></h3>
+<p>Link para xlsx: <a href="https://drive.google.com/file/d/1-cJcJm5lRt_v7PSPNCz1emHY6yEfRPBY/view?usp=sharing">Ponto_03_contagem_24h.xlsx</a> (<a href="https://drive.google.com/uc?id=1-cJcJm5lRt_v7PSPNCz1emHY6yEfRPBY&amp;export=download">baixar XLSX</a>)</p>
+<p>O P03 está situado na Rua Dr. José Firmo Bernardi, em frente ao empreendimento.</p>
+<p>A medição foi realizada a partir de câmera instalada por terceiros, sendo disponibilizado ao estudo o vídeo completo de 24 horas. Para fins de processamento e análise, foi utilizada a gravação referente ao período de 10/12/2025.</p>
+<p>A leitura principal indica assimetria direcional, com predominância do sentido A-B.</p>
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-019-e759a6322c4e.png" /></p>
+<p class="legenda">Tabela 8.9 - Volumes totais por movimento e classificação</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-020-26eafaef27b8.png" /></p>
+<p class="legenda">Gráfico 8.5 - Composição veicular</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-021-c23711ef01fb.png" /></p>
+<p class="legenda">Tabela 8.10 - Volume UCP/Hora</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-022-b178a5218ca9.png" /></p>
+<p class="legenda">Gráfico 8.6 - Perfil horário de fluxo e UCP</p>
+
+<h3 id="845-p04">8.4.5 P04<a class="headerlink" href="#845-p04" title="Permanent link">&para;</a></h3>
+<p>Link para xlsx: <a href="https://drive.google.com/file/d/1kuIL4hsPiZKY9qavFAdkkxfqNhA9b_Au/view?usp=sharing">Ponto_04_contagem_24h.xlsx</a> (<a href="https://drive.google.com/uc?id=1kuIL4hsPiZKY9qavFAdkkxfqNhA9b_Au&amp;export=download">baixar XLSX</a>)</p>
+<p>O P04 foi instalado na Rua Dr. José Firmo Bernardi, em frente ao Hospital da UNIMED, com medição realizada em 22/01/2026.</p>
+<p>O ponto evidencia carregamento assimétrico, com presença relevante de veículos pesados e ônibus no sentido A-B.</p>
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-027-d37e8151fbee.png" /></p>
+<p class="legenda">Tabela 8.11 - P04, Volumes totais por movimento e classificação</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-028-e3b11981f81d.png" /></p>
+<p class="legenda">Gráfico 8.7 - Composição veicular</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-029-d21192f1635b.png" /></p>
+<p class="legenda">Tabela 8.12 - Volume UCP/Hora</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-030-0858c7188265.png" /></p>
+<p class="legenda">Gráfico 8.8 - Perfil horário de fluxo e UCP</p>
+
+<h3 id="846-p05">8.4.6 P05<a class="headerlink" href="#846-p05" title="Permanent link">&para;</a></h3>
+<p>Link para xlsx: <a href="https://drive.google.com/file/d/1e_3HD5oOctarzVY-jofzqXwbTuRj6X_s/view?usp=sharing">Ponto_05_contagem_15min_2025-03-11.xlsx</a> (<a href="https://drive.google.com/uc?id=1e_3HD5oOctarzVY-jofzqXwbTuRj6X_s&amp;export=download">baixar XLSX</a>); <a href="https://drive.google.com/file/d/1VKLDigoixyicdV6F8LHrGcOSKPtJQ7e4/view?usp=sharing">Ponto_05_contagem_15min_2025-03-12.xlsx</a> (<a href="https://drive.google.com/uc?id=1VKLDigoixyicdV6F8LHrGcOSKPtJQ7e4&amp;export=download">baixar XLSX</a>)</p>
+<p>O P05 corresponde ao entroncamento entre a Rua Dr. José Firmo Bernardi e a Rua Albino Holsbach, com levantamentos realizados por janelas de medição em 11/03/2025 e 12/03/2025.</p>
+<p>O levantamento foi executado com uso de drone, em horário representativo de pico típico da circulação viária local. Em razão da curta duração das janelas de medição, os volumes registrados foram interpolados para o fechamento da hora de análise, permitindo sua compatibilização com a base de processamento adotada no estudo.</p>
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-031-6b17d8be6dc0.png" /></p>
+<p class="legenda">Tabela 8.13 - Volumes por movimento dia 11/03/2025</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-032-cd0c5e255970.png" /></p>
+<p class="legenda">Gráfico 8.9 - Composição veicular dia 11/03/2025</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-033-ea853bf3aa81.png" /></p>
+<p class="legenda">Tabela 8.14 - Volume UCP/Hora dia 11/03/2025</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-034-f572673aad5b.png" /></p>
+<p class="legenda">Gráfico 8.10 - Perfil horário de fluxo e UCP dia 11/03/2025</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-035-ed236a5a0e59.png" /></p>
+<p class="legenda">Tabela 8.15 - Volumes totais por movimento e classificação dia 12/03/2025</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-036-c9b9506b1cfc.png" /></p>
+<p class="legenda">Gráfico 8.11 - Composição veicular dia 12/03/2025</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-037-544f3db96331.png" /></p>
+<p class="legenda">Tabela 8.16 - Volume UCP/Hora dia 12/03/2025</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-038-c6f82b87eee7.png" /></p>
+<p class="legenda">Tabela 8.17 - Perfil horário de fluxo e UCP dia 12/03/2025</p>
+
+<h3 id="847-p06">8.4.7 P06<a class="headerlink" href="#847-p06" title="Permanent link">&para;</a></h3>
+<p>Link para xlsx: <a href="https://drive.google.com/file/d/1o5Ksk559jRxzAHG-5EmM9dIsONOo60Kf/view?usp=sharing">Ponto_06_contagem_15min_2024-04-11_2024-04-12.xlsx</a> (<a href="https://drive.google.com/uc?id=1o5Ksk559jRxzAHG-5EmM9dIsONOo60Kf&amp;export=download">baixar XLSX</a>); <a href="https://drive.google.com/file/d/1J6LzSh1QGDpJjlmHBKQdZqQygjBe-T2e/view?usp=sharing">Ponto_06_contagem_24h.xlsx</a> (<a href="https://drive.google.com/uc?id=1J6LzSh1QGDpJjlmHBKQdZqQygjBe-T2e&amp;export=download">baixar XLSX</a>)</p>
+<p>O P06 corresponde ao entroncamento entre a Rua Dr. José Firmo Bernardi e a Rua Celso Braz de Carli, com medição realizada em 22/01/2026.</p>
+<p>O estudo registra maior carregamento nos movimentos B-C e A-B, utilizados como referência para a leitura operacional e calibração do ponto no modelo.</p>
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-039-55d17bfc8fd1.png" /></p>
+<p class="legenda">Tabela 8.18 - P06, Volumes totais por movimento e classificação</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-040-246f0e568356.png" /></p>
+<p class="legenda">Gráfico 8.12 - Composição veicular</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-041-35442bf8ca7a.png" /></p>
+<p class="legenda">Tabela 8.19 - Volume UCP/Hora</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-042-6e3b56018bfa.png" /></p>
+<p class="legenda">Gráfico 8.13 - Perfil horário de fluxo e UCP</p>
+
+<h3 id="848-p07">8.4.8 P07<a class="headerlink" href="#848-p07" title="Permanent link">&para;</a></h3>
+<p>Link para xlsx: <a href="https://drive.google.com/file/d/1KzKMzWccPym4WYqNho-oazeFzQKOImiN/view?usp=sharing">Ponto_07_contagem_24h.xlsx</a> (<a href="https://drive.google.com/uc?id=1KzKMzWccPym4WYqNho-oazeFzQKOImiN&amp;export=download">baixar XLSX</a>)</p>
+<p>O P07 representa o entroncamento entre a Rua Sete de Setembro, a Rua Guilherme Lugisland e a Rua Dr. José Firmo Bernardi, com medição realizada em 23/01/2026.</p>
+<p>Além de ponto de contagem, o P07 constitui nó de leitura operacional específica da rotatória prevista para o local, sendo utilizado como referência para a avaliação dos movimentos existentes e para a análise comparativa da condição futura proposta.</p>
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-043-75bb3ddf9715.png" /></p>
+<p class="legenda">Tabela 8.20 - Volumes totais por movimento e classificação</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-044-970198724454.png" /></p>
+<p class="legenda">Gráfico 8.14 - Composição veicular</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-045-d74d1f2f0d90.png" /></p>
+<p class="legenda">Gráfico 8.15 - Volume UCP/Hora</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-046-240df76e10bc.png" /></p>
+<p class="legenda">Gráfico 8.16 - Perfil horário de fluxo e UCP</p>
+
+<h3 id="849-p08">8.4.9 P08<a class="headerlink" href="#849-p08" title="Permanent link">&para;</a></h3>
+<p>Link para xlsx: <a href="https://drive.google.com/file/d/1Rtiu8tJJDHhO4yf0zpK3khnQHqTUZFu2/view?usp=sharing">Ponto_08_contagem_12h.xlsx</a> (<a href="https://drive.google.com/uc?id=1Rtiu8tJJDHhO4yf0zpK3khnQHqTUZFu2&amp;export=download">baixar XLSX</a>)</p>
+<p>O P08 corresponde ao cruzamento da Rua Sete de Setembro com a Rua Salgado Filho, cujo levantamento foi realizado em 26/11/2024. Os dados disponibilizados pela empresa responsável foram posteriormente padronizados para compatibilização com o padrão metodológico adotado no presente estudo. Registra-se, contudo, ressalva quanto à coluna “Total UCP”, cuja leitura e consolidação dependem de conferência específica na planilha-fonte.</p>
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-047-d1546d164871.png" /></p>
+<p class="legenda">Tabela 8.21 - Volumes totais por movimento e classificação</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-048-13dc2ff53eb7.png" /></p>
+<p class="legenda">Gráfico 8.17 - Composição veicular</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-049-3e8d75ec3c0d.png" /></p>
+<p class="legenda">Tabela 8.22 - Volume UCP/Hora</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-050-4864e8a01b04.png" /></p>
+<p class="legenda">Gráfico 8.18 - Perfil horário de fluxo e UCP</p>
+
+<h3 id="8410-p09">8.4.10 P09<a class="headerlink" href="#8410-p09" title="Permanent link">&para;</a></h3>
+<p>Link para xlsx: <a href="https://drive.google.com/file/d/1kdSsRawYTrIO8eTR62qlQJAJRCEjKSRb/view?usp=sharing">Ponto_09_contagem_15min_2025-03-11.xlsx</a> (<a href="https://drive.google.com/uc?id=1kdSsRawYTrIO8eTR62qlQJAJRCEjKSRb&amp;export=download">baixar XLSX</a>); <a href="https://drive.google.com/file/d/1vOKkJxwjpezcaK3bPLYx01nDo52AEtgC/view?usp=sharing">Ponto_09_contagem_15min_2025-03-12.xlsx</a> (<a href="https://drive.google.com/uc?id=1vOKkJxwjpezcaK3bPLYx01nDo52AEtgC&amp;export=download">baixar XLSX</a>)</p>
+<p>O P09 corresponde ao cruzamento da Rua Guilherme Lugisland com a Rua Albino Holsbach, cujo levantamento foi realizado nos dias 11/03/2025 e 12/03/2025. A coleta dos dados foi realizada com apoio de drone, permitindo o registro aéreo do fluxo viário e a posterior análise, classificação e padronização das informações conforme o padrão metodológico adotado no presente estudo.</p>
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-051-732243e1be9a.png" /></p>
+<p class="legenda">Tabela 8.23 - Volumes totais por movimento e classificação dia 11/03/2025</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-052-5af00af9bff1.png" /></p>
+<p class="legenda">Gráfico 8.19 - Composição veicular dia 11/03/2025</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-053-5783b8efff00.png" /></p>
+<p class="legenda">Tabela 8.24 - Volume UCP/Hora dia 11/03/2025</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-054-8a4e5e803df5.png" /></p>
+<p class="legenda">Gráfico 8.20 - Perfil horário de fluxo e UCP dia 11/03/2025</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-055-9692770a27d1.png" /></p>
+<p class="legenda">Tabela 8.25 - Volumes totais por movimento e classificação dia 12/03/2025</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-056-2b4c33334b85.png" /></p>
+<p class="legenda">Gráfico 8.21 - Composição veicular dia 12/03/2025</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-057-8e9005d77041.png" /></p>
+<p class="legenda">Tabela 8.26 - Volume UCP/Hora dia 12/03/2025</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-058-e03b304478d8.png" /></p>
+<p class="legenda">Gráfico 8.22 - Perfil horário de fluxo e UCP dia 12/03/2025</p>
+
+<h3 id="8411-p10">8.4.11 P10<a class="headerlink" href="#8411-p10" title="Permanent link">&para;</a></h3>
+<p>Link para xlsx: <a href="https://drive.google.com/file/d/1_IKNhYSkC9NoBIbtIETzJqLPJ8qYLkS9/view?usp=sharing">Ponto_10_contagem_15min_2025-03-11.xlsx</a> (<a href="https://drive.google.com/uc?id=1_IKNhYSkC9NoBIbtIETzJqLPJ8qYLkS9&amp;export=download">baixar XLSX</a>); <a href="https://drive.google.com/file/d/19OOmc-WYFCMOmVYw4U1t2w4qz2sx4p9c/view?usp=sharing">Ponto_10_contagem_15min_2025-03-12.xlsx</a> (<a href="https://drive.google.com/uc?id=19OOmc-WYFCMOmVYw4U1t2w4qz2sx4p9c&amp;export=download">baixar XLSX</a>)</p>
+<p>O P10 corresponde ao cruzamento da Rua Guilherme Lugisland com a Rua Idalino Machado de Lima, encerrando a cadeia de leitura da Rua Guilherme Lugisland no setor analisado. O levantamento foi realizado nos dias 11/03/2025 e 12/03/2025, com apoio de drone, permitindo o registro aéreo do fluxo viário e a posterior análise, classificação e padronização das informações conforme o padrão metodológico adotado no presente estudo.</p>
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-059-de3b3a3920ff.png" /></p>
+<p class="legenda">Tabela 8.27 - Volumes totais por movimento e classificação dia 11/03/2025</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-060-afc978a16874.png" /></p>
+<p class="legenda">Gráfico 8.23 - Composição veicular dia 11/03/2025</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-061-8c762aa7104a.png" /></p>
+<p class="legenda">Tabela 8.28 - Volume UCP/Hora dia 11/03/2025</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-062-05d807416a4d.png" /></p>
+<p class="legenda">Gráfico 8.24 - Perfil horário de fluxo e UCP dia 11/03/2025</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-063-d449c2b617f9.png" /></p>
+<p class="legenda">Tabela 8.29 - Volumes totais por movimento e classificação dia 12/03/2025</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-064-d7184e02d891.png" /></p>
+<p class="legenda">Gráfico 8.25 - Composição veicular dia 12/03/2025</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-065-b1a61aaa1557.png" /></p>
+<p class="legenda">Tabela 8.30 - Volume UCP/Hora dia 12/03/2025</p>
+
+<p><img alt="Imagem" src="../assets/v12a/img-v12a-066-e3f2d9d812ba.png" /></p>
+<p class="legenda">Gráfico 8.26 - Perfil horário de fluxo e UCP dia 12/03/2025</p>
+
+<h2 id="85-sintese-diagnostica-dos-levantamentos">8.5 Síntese diagnóstica dos levantamentos<a class="headerlink" href="#85-sintese-diagnostica-dos-levantamentos" title="Permanent link">&para;</a></h2>
+<p>Os levantamentos de tráfego confirmam a concentração dos maiores volumes nos eixos estruturadores do corredor Oeste de Joaçaba. O maior carregamento aparece no P02, localizado na interseção da Avenida Barão do Rio Branco com a Rua Getúlio Vargas, com 18.579 veículos consolidados e pico horário às 18h-19h, indicando forte participação desse nó na distribuição principal dos fluxos urbanos. Também se destacam o P08, na Rua Sete de Setembro com a Rua Salgado Filho, com 9.908 veículos e pico às 13h-14h, o P01, na Rua Getúlio Vargas com a Rua Guilherme Lugisland, com 5.814 veículos e pico às 18h-19h, o P06, na Rua Dr. José Firmo Bernardi com a Rua Celso Braz de Carli, com 5.341 veículos e pico às 18h-19h, e o P07, associado à Rua Sete de Setembro, com 5.238 veículos e pico às 17h-18h.</p>
+<p>Nos trechos da Rua Dr. José Firmo Bernardi, os dados indicam comportamento direcional relevante. O P03, em frente ao empreendimento, registra 2.069 veículos no consolidado principal, com predomínio do fluxo A-B sobre o fluxo B-A, enquanto o P04, em frente à UNIMED, apresenta 4.397 veículos, também com maior participação no sentido A-B. Esses resultados reforçam a leitura de assimetria operacional no corredor e justificam a análise separada dos sentidos de circulação na modelagem.</p>
+<p>Os pontos complementares e de sub intensidade ajudam a caracterizar movimentos locais e conexões secundárias do sistema. No P05, Rua Dr. José Firmo Bernardi com a Rua Albino Holsbach, os maiores movimentos observados concentram-se nos fluxos A-B e B-A. No P09, Rua Guilherme Lugisland com a Rua Albino Holsbach, predomina o movimento B-A nas duas janelas analisadas. No P10, Rua Guilherme Lugisland com a Rua Idalino Machado de Lima, os volumes também se concentram nos movimentos B-A, A-B e C-A, indicando função mais localizada de distribuição.</p>
+<p>Assim, as contagens sustentam a montagem dos cenários no HCM-LOS ao diferenciar os eixos de maior carregamento, os pontos de distribuição principal e as conexões locais de apoio. As tabelas completas por classe veicular, gráficos horários, diagramas direcionais e imagens das planilhas permanecem no Capítulo 16, enquanto o Capítulo 8 apresenta as sínteses necessárias para compreender a origem dos volumes adotados na modelagem do sistema viário atual e do sistema viário alterado.</p>
+<p><strong>Navegação:</strong> <a href="../07-caracterizacao-funcional-da-rede-e-criterios-de-leitura-operacional/">← Anterior</a> | <a href="../00-sumario/">Sumário</a> | <a href="../09-metodologia-de-modelagem-e-cenarios/">Próximo →</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.top", "toc.follow", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
