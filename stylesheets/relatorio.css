@@ -37,6 +37,10 @@
   margin: 1rem auto 0.35rem;
 }
 
+.md-typeset img.image-lightbox-source {
+  cursor: zoom-in;
+}
+
 .md-typeset .legenda {
   display: block;
   text-align: center !important;
@@ -98,6 +102,63 @@
   font-weight: 700;
 }
 
+.image-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 3.5rem 1.25rem 2rem;
+  background: rgba(11, 18, 32, 0.92);
+}
+
+.image-lightbox.is-open {
+  display: flex;
+}
+
+.image-lightbox-open {
+  overflow: hidden;
+}
+
+.image-lightbox__image {
+  display: block;
+  max-width: min(96vw, 1500px);
+  max-height: 84vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  background: #fff;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+  cursor: zoom-out;
+}
+
+.image-lightbox__close {
+  position: fixed;
+  top: 0.75rem;
+  right: 0.9rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.image-lightbox__caption {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 0.7rem;
+  left: 1.25rem;
+  color: #f8fafc;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  text-align: center;
+}
+
 @media screen and (max-width: 760px) {
   .md-typeset {
     font-size: 0.76rem;
@@ -121,5 +182,14 @@
 
   .md-typeset .legenda {
     font-size: 0.68rem;
+  }
+
+  .image-lightbox {
+    padding: 3.25rem 0.45rem 2.5rem;
+  }
+
+  .image-lightbox__image {
+    max-width: 98vw;
+    max-height: 82vh;
   }
 }
