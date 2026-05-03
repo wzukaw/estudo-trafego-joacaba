@@ -61,6 +61,20 @@
     document.documentElement.classList.add("image-lightbox-open");
   }
 
+  function eventImage(event) {
+    var image = imageFromEventTarget(event.target) || imageFromZoomLink(event.target);
+    if (!image || !image.getAttribute("src")) return null;
+    return image;
+  }
+
+  function handleOpenEvent(event) {
+    var image = eventImage(event);
+    if (!image) return;
+    event.preventDefault();
+    event.stopPropagation();
+    openLightbox(image);
+  }
+
   function imageFromEventTarget(target) {
     if (!target) return null;
     if (target.matches && target.matches(".md-typeset img")) return target;
@@ -78,19 +92,13 @@
     if (document.documentElement.dataset.lightboxDelegated === "true") return;
     document.documentElement.dataset.lightboxDelegated = "true";
 
-    document.addEventListener("click", function (event) {
-      var image = imageFromEventTarget(event.target) || imageFromZoomLink(event.target);
-      if (!image || !image.getAttribute("src")) return;
-      event.preventDefault();
-      openLightbox(image);
-    });
+    document.addEventListener("click", handleOpenEvent, true);
+    document.addEventListener("pointerup", handleOpenEvent, true);
+    document.addEventListener("touchend", handleOpenEvent, { capture: true, passive: false });
 
     document.addEventListener("keydown", function (event) {
       if (event.key !== "Enter" && event.key !== " ") return;
-      var image = imageFromEventTarget(event.target) || imageFromZoomLink(event.target);
-      if (!image || !image.getAttribute("src")) return;
-      event.preventDefault();
-      openLightbox(image);
+      handleOpenEvent(event);
     });
   }
 

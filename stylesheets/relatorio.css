@@ -116,6 +116,9 @@
   justify-content: center;
   padding: 3.5rem 1.25rem 2rem;
   background: rgba(11, 18, 32, 0.92);
+  overflow: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
 .image-lightbox.is-open {
@@ -190,11 +193,16 @@
   }
 
   .image-lightbox {
-    padding: 3.25rem 0.45rem 2.5rem;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 3.25rem 0.75rem 3.25rem;
   }
 
   .image-lightbox__image {
-    max-width: 98vw;
-    max-height: 82vh;
+    max-width: none;
+    max-height: none;
+    width: max(112vw, min(980px, 240vw));
+    height: auto;
+    margin: 0 auto;
   }
 }
