@@ -68,12 +68,18 @@
     return null;
   }
 
+  function imageFromZoomLink(target) {
+    if (!target || !target.closest) return null;
+    var link = target.closest(".md-typeset a.image-zoom-link");
+    return link ? link.querySelector("img") : null;
+  }
+
   function enableDelegatedEvents() {
     if (document.documentElement.dataset.lightboxDelegated === "true") return;
     document.documentElement.dataset.lightboxDelegated = "true";
 
     document.addEventListener("click", function (event) {
-      var image = imageFromEventTarget(event.target);
+      var image = imageFromEventTarget(event.target) || imageFromZoomLink(event.target);
       if (!image || !image.getAttribute("src")) return;
       event.preventDefault();
       openLightbox(image);
@@ -81,7 +87,7 @@
 
     document.addEventListener("keydown", function (event) {
       if (event.key !== "Enter" && event.key !== " ") return;
-      var image = imageFromEventTarget(event.target);
+      var image = imageFromEventTarget(event.target) || imageFromZoomLink(event.target);
       if (!image || !image.getAttribute("src")) return;
       event.preventDefault();
       openLightbox(image);

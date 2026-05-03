@@ -41,6 +41,11 @@
   cursor: zoom-in;
 }
 
+.md-typeset a.image-zoom-link {
+  display: block;
+  cursor: zoom-in;
+}
+
 .md-typeset .legenda {
   display: block;
   text-align: center !important;
