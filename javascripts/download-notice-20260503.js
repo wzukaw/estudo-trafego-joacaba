@@ -120,8 +120,8 @@
     var body = modal.querySelector(".download-notice__body");
     if (canDownload) {
       body.innerHTML = [
-        "<p>Este arquivo ZIP \u00e9 protegido por senha e criptografia. O acesso ao conte\u00fado depende da senha informada separadamente pelo respons\u00e1vel pelo estudo.</p>",
-        "<p>As contagens de fluxo dos Pontos 02 e 08 s\u00e3o os \u00fanicos arquivos auxiliares disponibilizados para download direto neste naveg\u00e1vel, por se tratarem de bases da Prefeitura de Joa\u00e7aba associadas a contrato com a empresa 4mob.</p>"
+        "<p>Este arquivo corresponde a uma das contagens de fluxo dos Pontos 02 e 08, disponibilizadas para download direto neste naveg\u00e1vel por se tratarem de bases da Prefeitura de Joa\u00e7aba associadas a contrato com a empresa 4mob.</p>",
+        "<p>O arquivo ZIP \u00e9 disponibilizado sem senha para confer\u00eancia vinculada ao estudo.</p>"
       ].join("");
     } else {
       body.innerHTML = [
@@ -167,8 +167,21 @@
 
   function handleClick(event) {
     var link = event.target && event.target.closest ? event.target.closest("a") : null;
-    if (!isProtectedZipLink(link) && !isDownloadNoticePageLink(link)) return;
+    var isDirectZip = isProtectedZipLink(link);
+    var isNoticePage = isDownloadNoticePageLink(link);
+    if (!isDirectZip && !isNoticePage) return;
     if (link.classList.contains("download-notice__download")) return;
+
+    var fileName = fileNameFromLink(link);
+    if (DIRECT_DOWNLOAD_FILES[fileName]) {
+      if (isNoticePage) {
+        event.preventDefault();
+        event.stopPropagation();
+        window.location.href = directZipHref(fileName);
+      }
+      return;
+    }
+
     event.preventDefault();
     event.stopPropagation();
     openModal(link);
