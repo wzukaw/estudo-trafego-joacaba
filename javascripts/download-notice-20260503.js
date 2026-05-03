@@ -125,8 +125,8 @@
       ].join("");
     } else {
       body.innerHTML = [
-        "<p>Este arquivo t\u00e9cnico auxiliar foi cedido e/ou utilizado exclusivamente para o desenvolvimento deste estudo e permanece de propriedade da <strong>Arco Design</strong>.</p>",
-        "<p>Esse uso n\u00e3o implica cess\u00e3o de direitos, autoriza\u00e7\u00e3o de publica\u00e7\u00e3o, redistribui\u00e7\u00e3o, reprodu\u00e7\u00e3o ou disponibiliza\u00e7\u00e3o p\u00fablica dos arquivos auxiliares.</p>",
+        "<p>Este arquivo t\u00e9cnico auxiliar integra as bases de contagem e/ou c\u00e1lculo utilizadas na elabora\u00e7\u00e3o do estudo e permanece de propriedade da <strong>Arco Design</strong>.</p>",
+        "<p>Os arquivos de contagem e c\u00e1lculos foram cedidos \u00e0 Prefeitura de Joa\u00e7aba exclusivamente para o desenvolvimento e confer\u00eancia deste trabalho, sem que isso implique cess\u00e3o p\u00fablica de direitos de uso da base de dados, transfer\u00eancia de titularidade, autoriza\u00e7\u00e3o de publica\u00e7\u00e3o, redistribui\u00e7\u00e3o, reprodu\u00e7\u00e3o ou disponibiliza\u00e7\u00e3o independente desses arquivos auxiliares.</p>",
         "<p>Caso haja interesse em obter acesso a este arquivo, a solicita\u00e7\u00e3o dever\u00e1 ser formalizada diretamente \u00e0 Arco Design pelo e-mail <a href=\"mailto:arco.wwz@gmail.com\">arco.wwz@gmail.com</a>, podendo haver custo para disponibiliza\u00e7\u00e3o, conforme avalia\u00e7\u00e3o da empresa.</p>"
       ].join("");
     }
