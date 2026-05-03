@@ -61,6 +61,33 @@
     document.documentElement.classList.add("image-lightbox-open");
   }
 
+  function imageFromEventTarget(target) {
+    if (!target) return null;
+    if (target.matches && target.matches(".md-typeset img")) return target;
+    if (target.closest) return target.closest(".md-typeset img");
+    return null;
+  }
+
+  function enableDelegatedEvents() {
+    if (document.documentElement.dataset.lightboxDelegated === "true") return;
+    document.documentElement.dataset.lightboxDelegated = "true";
+
+    document.addEventListener("click", function (event) {
+      var image = imageFromEventTarget(event.target);
+      if (!image || !image.getAttribute("src")) return;
+      event.preventDefault();
+      openLightbox(image);
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      var image = imageFromEventTarget(event.target);
+      if (!image || !image.getAttribute("src")) return;
+      event.preventDefault();
+      openLightbox(image);
+    });
+  }
+
   function prepareImages() {
     document.querySelectorAll(".md-typeset img").forEach(function (image) {
       if (image.dataset.lightboxReady === "true") return;
@@ -71,18 +98,10 @@
       image.setAttribute("role", "button");
       image.setAttribute("title", "Clique para ampliar");
 
-      image.addEventListener("click", function () {
-        openLightbox(image);
-      });
-
-      image.addEventListener("keydown", function (event) {
-        if (event.key === "Enter" || event.key === " ") {
-          event.preventDefault();
-          openLightbox(image);
-        }
-      });
     });
   }
+
+  enableDelegatedEvents();
 
   if (window.document$ && typeof window.document$.subscribe === "function") {
     window.document$.subscribe(prepareImages);
