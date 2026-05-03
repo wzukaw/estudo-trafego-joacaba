@@ -4,6 +4,25 @@
     "Ponto_08_contagem_12h.zip": true
   };
 
+  var SITE_BASE = (function () {
+    var scripts = document.getElementsByTagName("script");
+    for (var i = scripts.length - 1; i >= 0; i -= 1) {
+      var src = scripts[i].getAttribute("src") || "";
+      if (src.indexOf("download-notice-20260503.js") !== -1) {
+        try {
+          return new URL("../", new URL(src, window.location.href)).href;
+        } catch (error) {
+          break;
+        }
+      }
+    }
+    try {
+      return new URL("./", window.location.href).href;
+    } catch (error) {
+      return "./";
+    }
+  })();
+
   function textOf(link) {
     return (link && (link.textContent || "").trim()) || "";
   }
@@ -53,10 +72,23 @@
 
   function directZipHref(fileName) {
     try {
-      return new URL("../assets/xlsx_protegidos/" + encodeURIComponent(fileName), window.location.href).href;
+      return new URL("assets/xlsx_protegidos/" + encodeURIComponent(fileName), SITE_BASE).href;
     } catch (error) {
       return "../assets/xlsx_protegidos/" + fileName;
     }
+  }
+
+  function forceDownload(fileName) {
+    var anchor = document.createElement("a");
+    anchor.href = directZipHref(fileName);
+    anchor.download = fileName;
+    anchor.rel = "noopener";
+    anchor.style.display = "none";
+    document.body.appendChild(anchor);
+    anchor.click();
+    window.setTimeout(function () {
+      if (anchor.parentNode) anchor.parentNode.removeChild(anchor);
+    }, 0);
   }
 
   function escapeHtml(value) {
@@ -174,11 +206,9 @@
 
     var fileName = fileNameFromLink(link);
     if (DIRECT_DOWNLOAD_FILES[fileName]) {
-      if (isNoticePage) {
-        event.preventDefault();
-        event.stopPropagation();
-        window.location.href = directZipHref(fileName);
-      }
+      event.preventDefault();
+      event.stopPropagation();
+      forceDownload(fileName);
       return;
     }
 
