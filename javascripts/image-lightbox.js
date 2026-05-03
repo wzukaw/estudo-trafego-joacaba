@@ -1,4 +1,9 @@
 (function () {
+  var touchStart = null;
+  var touchMoved = false;
+  var maxTapMove = 12;
+  var maxTapTime = 650;
+
   function ensureLightbox() {
     var existing = document.querySelector(".image-lightbox");
     if (existing) return existing;
@@ -75,6 +80,51 @@
     openLightbox(image);
   }
 
+  function rememberTouchStart(event) {
+    if (!event.touches || event.touches.length !== 1) {
+      touchStart = null;
+      touchMoved = true;
+      return;
+    }
+
+    var touch = event.touches[0];
+    touchStart = {
+      x: touch.clientX,
+      y: touch.clientY,
+      time: Date.now()
+    };
+    touchMoved = false;
+  }
+
+  function rememberTouchMove(event) {
+    if (!touchStart || !event.touches || event.touches.length !== 1) {
+      touchMoved = true;
+      return;
+    }
+
+    var touch = event.touches[0];
+    if (
+      Math.abs(touch.clientX - touchStart.x) > maxTapMove ||
+      Math.abs(touch.clientY - touchStart.y) > maxTapMove
+    ) {
+      touchMoved = true;
+    }
+  }
+
+  function handleTouchEnd(event) {
+    if (!touchStart || touchMoved || Date.now() - touchStart.time > maxTapTime) {
+      touchStart = null;
+      return;
+    }
+    touchStart = null;
+    handleOpenEvent(event);
+  }
+
+  function handlePointerUp(event) {
+    if (event.pointerType === "touch") return;
+    handleOpenEvent(event);
+  }
+
   function imageFromEventTarget(target) {
     if (!target) return null;
     if (target.matches && target.matches(".md-typeset img")) return target;
@@ -93,8 +143,10 @@
     document.documentElement.dataset.lightboxDelegated = "true";
 
     document.addEventListener("click", handleOpenEvent, true);
-    document.addEventListener("pointerup", handleOpenEvent, true);
-    document.addEventListener("touchend", handleOpenEvent, { capture: true, passive: false });
+    document.addEventListener("pointerup", handlePointerUp, true);
+    document.addEventListener("touchstart", rememberTouchStart, { capture: true, passive: true });
+    document.addEventListener("touchmove", rememberTouchMove, { capture: true, passive: true });
+    document.addEventListener("touchend", handleTouchEnd, { capture: true, passive: false });
 
     document.addEventListener("keydown", function (event) {
       if (event.key !== "Enter" && event.key !== " ") return;
