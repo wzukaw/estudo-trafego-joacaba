@@ -167,6 +167,90 @@
   text-align: center;
 }
 
+.download-notice {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  background: rgba(11, 18, 32, 0.72);
+}
+
+.download-notice.is-open {
+  display: flex;
+}
+
+.download-notice-open {
+  overflow: hidden;
+}
+
+.download-notice__panel {
+  position: relative;
+  width: min(680px, 100%);
+  max-height: min(86vh, 720px);
+  overflow: auto;
+  padding: 1.25rem 1.35rem 1.15rem;
+  border-radius: 8px;
+  background: #fff;
+  color: #172033;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+}
+
+.download-notice__panel h2 {
+  margin: 0 2.5rem 0.8rem 0;
+  font-size: 1.15rem;
+}
+
+.download-notice__panel p {
+  margin: 0.55rem 0;
+  text-align: left;
+  text-indent: 0;
+}
+
+.download-notice__panel code {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.download-notice__close {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.65rem;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 999px;
+  background: #f8fafc;
+  color: #1f2937;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.download-notice__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.download-notice__cancel {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.25rem;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  background: #fff;
+  color: #172033;
+  font: inherit;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 760px) {
   .md-typeset {
     font-size: 0.76rem;
@@ -204,5 +288,25 @@
     width: max(112vw, min(980px, 240vw));
     height: auto;
     margin: 0 auto;
+  }
+
+  .download-notice {
+    align-items: flex-end;
+    padding: 0.75rem;
+  }
+
+  .download-notice__panel {
+    max-height: 88vh;
+    padding: 1.05rem 1rem 1rem;
+  }
+
+  .download-notice__actions {
+    justify-content: stretch;
+  }
+
+  .download-notice__actions > * {
+    flex: 1 1 100%;
+    justify-content: center;
+    text-align: center;
   }
 }
