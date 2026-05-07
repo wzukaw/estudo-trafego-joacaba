@@ -36,37 +36,39 @@ def clean_brand(value: str) -> str:
 
 def document_title(path: Path) -> str:
     name = path.name
+    stem = path.stem
     suffix = path.suffix.lower()
 
-    match = re.match(rf"(?i)^{LEGACY_PREFIX}-\d+-cvc-(?:tab-)?joaçaba-sc-p(\d+)", name)
+    match = re.match(rf"(?i)^{LEGACY_PREFIX}-\d+-cvc-(?:tab-)?joa[çc]aba-sc-p(\d+)", stem)
     if match:
         return f"Contagem volumétrica e classificatória - P{int(match.group(1))}{suffix}"
 
-    match = re.match(rf"(?i)^{LEGACY_PREFIX}-\d+-rel-joaçaba-r(\d)(?:-etapa\s*(\d+))?", name)
+    match = re.match(rf"(?i)^{LEGACY_PREFIX}-\d+-rel-joa[çc]aba-r(\d)(?:-etapa\s*(\d+))?", stem)
     if match:
         etapa = f" - etapa {match.group(2)}" if match.group(2) else ""
         kind = "Parametrização semafórica" if match.group(2) else "Relatório técnico de contagem"
         return f"{kind} - R{match.group(1)}{etapa}{suffix}"
 
-    match = re.match(rf"(?i)^{LEGACY_PREFIX}-12-de-sin-circulação-joaçaba-r(\d+)(?:\s*-\s*(.*))?", name)
+    match = re.match(rf"(?i)^{LEGACY_PREFIX}-12-de-sin-circula[çc][ãa]o-joa[çc]aba-r(\d+)(?:\s*-\s*(.*))?", stem)
     if match:
         detail = f" - {match.group(2)}" if match.group(2) else ""
         return f"Projeto de circulação e sinalização - R{match.group(1)}{detail}{suffix}"
 
-    match = re.match(rf"(?i)^{LEGACY_PREFIX}-12-mde-circulação-joaçaba-r(\d+)", name)
+    match = re.match(rf"(?i)^{LEGACY_PREFIX}-12-mde-circula[çc][ãa]o-joa[çc]aba-r(\d+)", stem)
     if match:
         return f"Memorial descritivo de circulação - R{match.group(1)}{suffix}"
 
-    match = re.match(rf"(?i)^{LEGACY_PREFIX}-\d+-de-sin-joaçaba-estudo-r(\d+)", name)
+    match = re.match(rf"(?i)^{LEGACY_PREFIX}-\d+-de-sin-joa[çc]aba-estudo-r(\d+)", stem)
     if match:
         return f"Projeto de sinalização - R{match.group(1)}{suffix}"
 
-    match = re.match(rf"(?i)^{LEGACY_PREFIX}-\d+-de-estudo-sta-tereza-r(\d+)(?:-(\d+))?", name)
+    match = re.match(rf"(?i)^{LEGACY_PREFIX}-\d+-de-estudo-sta-tereza-r(\d+)(?:-(\d+))?", stem)
     if match:
         prancha = f" - prancha {match.group(2)}" if match.group(2) else ""
         return f"Estudo de acesso Santa Tereza - R{match.group(1)}{prancha}{suffix}"
 
     cleaned = clean_brand(name)
+    cleaned = re.sub(r"(?i)^\d+-cvc-(?:tab-)?joa[çc]aba-sc-p(\d+)(\.[a-z0-9]+)$", r"Contagem volumétrica e classificatória - P\1\2", cleaned)
     cleaned = re.sub(r"(?i)^01\s+\.pdf$", "Orçamento 01.pdf", cleaned)
     return cleaned or f"Documento técnico{suffix}"
 
@@ -104,6 +106,11 @@ def scan_files(base: Path, *relative_roots: str) -> list[dict[str, str]]:
                 }
             )
     return files
+
+
+def only_titles(files: list[dict[str, str]], *terms: str) -> list[dict[str, str]]:
+    lowered = [term.lower() for term in terms]
+    return [item for item in files if all(term in item["title"].lower() for term in lowered)]
 
 
 def parse_counts() -> dict:
@@ -274,7 +281,7 @@ def build() -> None:
         (
             "Relatório técnico de contagem",
             "Versão R2 indicada como referência mais nova para a contagem do projeto central.",
-            scan_files(PROJETO_CENTRO, r"ENTREGAS\CONTAGENS\02-Relatório"),
+            only_titles(scan_files(PROJETO_CENTRO, r"ENTREGAS\CONTAGENS\02-Relatório"), "relatório técnico", "r2"),
         ),
         (
             "Planilhas e PDFs de contagem",
