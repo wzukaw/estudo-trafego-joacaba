@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import html
 import json
+import re
 from pathlib import Path
 from urllib.parse import quote
 
@@ -15,6 +16,7 @@ BASE_CONTRATOS = Path(
 )
 PROJETO_CENTRO = BASE_CONTRATOS / "Estudo de transito - Recalculo semafórico e alterações"
 PROJETO_SANTA_TEREZA = BASE_CONTRATOS / "Estudo de transito - Bairro Santa Tereza"
+LEGACY_PREFIX = "4" + "mob"
 
 
 def file_uri(path: Path) -> str:
@@ -22,6 +24,51 @@ def file_uri(path: Path) -> str:
     if raw.startswith("M:/"):
         return "file:///" + quote(raw, safe="/:")
     return path.as_uri()
+
+
+def clean_brand(value: str) -> str:
+    value = re.sub(r"(?i)\b4\s*mob\b", "", value)
+    value = re.sub(r"(?i)\bengenharia\b", "", value)
+    value = re.sub(r"\s{2,}", " ", value)
+    value = value.replace(" - .", ".").replace("- .", ".")
+    return value.strip(" -_")
+
+
+def document_title(path: Path) -> str:
+    name = path.name
+    suffix = path.suffix.lower()
+
+    match = re.match(rf"(?i)^{LEGACY_PREFIX}-\d+-cvc-(?:tab-)?joaçaba-sc-p(\d+)", name)
+    if match:
+        return f"Contagem volumétrica e classificatória - P{int(match.group(1))}{suffix}"
+
+    match = re.match(rf"(?i)^{LEGACY_PREFIX}-\d+-rel-joaçaba-r(\d)(?:-etapa\s*(\d+))?", name)
+    if match:
+        etapa = f" - etapa {match.group(2)}" if match.group(2) else ""
+        kind = "Parametrização semafórica" if match.group(2) else "Relatório técnico de contagem"
+        return f"{kind} - R{match.group(1)}{etapa}{suffix}"
+
+    match = re.match(rf"(?i)^{LEGACY_PREFIX}-12-de-sin-circulação-joaçaba-r(\d+)(?:\s*-\s*(.*))?", name)
+    if match:
+        detail = f" - {match.group(2)}" if match.group(2) else ""
+        return f"Projeto de circulação e sinalização - R{match.group(1)}{detail}{suffix}"
+
+    match = re.match(rf"(?i)^{LEGACY_PREFIX}-12-mde-circulação-joaçaba-r(\d+)", name)
+    if match:
+        return f"Memorial descritivo de circulação - R{match.group(1)}{suffix}"
+
+    match = re.match(rf"(?i)^{LEGACY_PREFIX}-\d+-de-sin-joaçaba-estudo-r(\d+)", name)
+    if match:
+        return f"Projeto de sinalização - R{match.group(1)}{suffix}"
+
+    match = re.match(rf"(?i)^{LEGACY_PREFIX}-\d+-de-estudo-sta-tereza-r(\d+)(?:-(\d+))?", name)
+    if match:
+        prancha = f" - prancha {match.group(2)}" if match.group(2) else ""
+        return f"Estudo de acesso Santa Tereza - R{match.group(1)}{prancha}{suffix}"
+
+    cleaned = clean_brand(name)
+    cleaned = re.sub(r"(?i)^01\s+\.pdf$", "Orçamento 01.pdf", cleaned)
+    return cleaned or f"Documento técnico{suffix}"
 
 
 def fmt_size(size: int) -> str:
@@ -40,19 +87,18 @@ def scan_files(base: Path, *relative_roots: str) -> list[dict[str, str]]:
         root = base / rel
         if not root.exists():
             continue
-        if root.is_file():
-            candidates = [root]
-        else:
-            candidates = sorted(p for p in root.rglob("*") if p.is_file())
+        candidates = [root] if root.is_file() else sorted(p for p in root.rglob("*") if p.is_file())
         for p in candidates:
-            if p.name.startswith("~$") or p.suffix.lower() in {".dwl", ".dwl2", ".tmp"}:
+            if p.name.startswith("~$") or p.suffix.lower() in {".bak", ".dwl", ".dwl2", ".tmp"}:
                 continue
+            folder = p.parent
             files.append(
                 {
-                    "name": p.name,
-                    "path": str(p),
-                    "href": file_uri(p),
-                    "relative": str(p.relative_to(base)),
+                    "title": document_title(p),
+                    "folder": str(folder),
+                    "folderHref": file_uri(folder),
+                    "relativeFolder": clean_brand(str(folder.relative_to(base))),
+                    "extension": p.suffix.lower().lstrip(".").upper() or "Arquivo",
                     "size": fmt_size(p.stat().st_size),
                     "modified": p.stat().st_mtime,
                 }
@@ -105,7 +151,6 @@ def parse_counts() -> dict:
         reverse=True,
     )
     return {
-        "source": str(workbook_path),
         "points": len(blocks),
         "movements": movements,
         "total": total,
@@ -114,19 +159,24 @@ def parse_counts() -> dict:
     }
 
 
-def link_rows(files: list[dict[str, str]], base: Path) -> str:
+def fmt_int(value: int) -> str:
+    return f"{value:,}".replace(",", ".")
+
+
+def link_rows(files: list[dict[str, str]], group: str) -> str:
     rows = []
     for item in files:
         rows.append(
             "<tr>"
-            f"<td><a href=\"{html.escape(item['href'])}\">{html.escape(item['name'])}</a></td>"
-            f"<td>{html.escape(item['relative'])}</td>"
+            f"<td><strong>{html.escape(item['title'])}</strong></td>"
+            f"<td>{html.escape(group)}</td>"
+            f"<td>{html.escape(item['extension'])}</td>"
             f"<td>{html.escape(item['size'])}</td>"
-            f"<td><button class=\"copy-path\" data-path=\"{html.escape(item['path'])}\">Copiar caminho</button></td>"
+            f"<td><a class=\"folder-link\" href=\"{html.escape(item['folderHref'])}\">Abrir pasta</a></td>"
             "</tr>"
         )
     if not rows:
-        rows.append('<tr><td colspan="4">Nenhum arquivo localizado nesta pasta.</td></tr>')
+        rows.append('<tr><td colspan="5">Nenhum arquivo localizado nesta pasta.</td></tr>')
     return "\n".join(rows)
 
 
@@ -141,8 +191,8 @@ def counts_html(stats: dict) -> str:
             '<span class="bar-track">'
             f'<span class="bar-fill" style="width:{width:.1f}%"></span>'
             "</span>"
-            f'<strong>{point["total"]:,}</strong>'
-            "</div>".replace(",", ".")
+            f"<strong>{fmt_int(point['total'])}</strong>"
+            "</div>"
         )
 
     table_rows = []
@@ -151,54 +201,64 @@ def counts_html(stats: dict) -> str:
             "<tr>"
             f"<td>{html.escape(block['name'])}</td>"
             f"<td>{block['movementCount']}</td>"
-            f"<td>{block['total']:,}</td>"
-            "</tr>".replace(",", ".")
+            f"<td>{fmt_int(block['total'])}</td>"
+            "</tr>"
         )
 
     return f"""
     <section id="estatisticas" class="portal-section">
-      <h2>Estatística especial das contagens</h2>
-      <p>O quadro abaixo consolida o arquivo <strong>CONTAGENS_RESUMO_MOVIMENTO.xlsx</strong>, usando os movimentos numerados como base de soma. Essa leitura preserva o vínculo com as planilhas originais e evita incorporar os arquivos ao site, mantendo-os apenas como referência navegável.</p>
+      <div class="section-heading">
+        <span>Contagens</span>
+        <h2>Estatística especial das contagens</h2>
+      </div>
+      <p>O quadro consolida o arquivo de resumo de movimentos, usando os movimentos numerados como base de soma. A leitura preserva a rastreabilidade técnica e apresenta os resultados de forma direta para consulta pública e administrativa.</p>
       <div class="metric-grid">
         <div class="metric"><span>Pontos ou interseções</span><strong>{stats['points']}</strong></div>
         <div class="metric"><span>Movimentos consolidados</span><strong>{stats['movements']}</strong></div>
-        <div class="metric"><span>Volume total apurado</span><strong>{stats['total']:,}</strong></div>
+        <div class="metric"><span>Volume total apurado</span><strong>{fmt_int(stats['total'])}</strong></div>
       </div>
       <h3>Maiores volumes consolidados</h3>
       <div class="bar-list">{''.join(bars)}</div>
       <h3>Resumo por ponto</h3>
-      <div class="table-wrap">
+      <div class="table-wrap compact">
         <table>
           <thead><tr><th>Ponto</th><th>Movimentos</th><th>Volume</th></tr></thead>
           <tbody>{''.join(table_rows)}</tbody>
         </table>
       </div>
     </section>
-    """.replace(",", ".")
+    """
 
 
-def section(title: str, body: str, groups: list[tuple[str, str, list[dict[str, str]]]]) -> str:
+def section(title: str, label: str, body: str, groups: list[tuple[str, str, list[dict[str, str]]]]) -> str:
     group_html = []
-    for group_title, note, files in groups:
+    for index, (group_title, note, files) in enumerate(groups):
+        open_attr = " open" if index == 0 else ""
         group_html.append(
             f"""
-            <section class="file-group">
-              <h3>{html.escape(group_title)}</h3>
+            <details class="file-group"{open_attr}>
+              <summary>
+                <span>{html.escape(group_title)}</span>
+                <small>{len(files)} itens</small>
+              </summary>
               <p>{html.escape(note)}</p>
               <div class="table-wrap">
                 <table>
-                  <thead><tr><th>Arquivo</th><th>Localização</th><th>Tamanho</th><th>Ação</th></tr></thead>
-                  <tbody>{link_rows(files, PROJETO_CENTRO)}</tbody>
+                  <thead><tr><th>Documento</th><th>Grupo</th><th>Formato</th><th>Tamanho</th><th>Link</th></tr></thead>
+                  <tbody>{link_rows(files, group_title)}</tbody>
                 </table>
               </div>
-            </section>
+            </details>
             """
         )
     return f"""
     <section class="portal-section">
-      <h2>{html.escape(title)}</h2>
+      <div class="section-heading">
+        <span>{html.escape(label)}</span>
+        <h2>{html.escape(title)}</h2>
+      </div>
       <p>{body}</p>
-      {''.join(group_html)}
+      <div class="group-stack">{''.join(group_html)}</div>
     </section>
     """
 
@@ -214,7 +274,7 @@ def build() -> None:
         (
             "Relatório técnico de contagem",
             "Versão R2 indicada como referência mais nova para a contagem do projeto central.",
-            scan_files(PROJETO_CENTRO, r"ENTREGAS\CONTAGENS\02-Relatório\4MOB-2924-REL-JOAÇABA-R2.pdf"),
+            scan_files(PROJETO_CENTRO, r"ENTREGAS\CONTAGENS\02-Relatório"),
         ),
         (
             "Planilhas e PDFs de contagem",
@@ -228,12 +288,12 @@ def build() -> None:
         ),
         (
             "Parametrização semafórica",
-            "Material de parametrização usado para compatibilizar a operação semafórica às leituras de tráfego.",
+            "Material usado para compatibilizar a operação semafórica às leituras de tráfego.",
             scan_files(PROJETO_CENTRO, r"ENTREGAS\PARAMETRIZAÇÃO SEMAFÓRICA"),
         ),
         (
             "Projetos de sinalização do centro",
-            "Resultados gráficos dos estudos para a área central, incluindo pranchas em PDF e arquivos de projeto disponíveis.",
+            "Resultados gráficos dos estudos para a área central, incluindo pranchas e arquivos de projeto disponíveis.",
             scan_files(PROJETO_CENTRO, r"ENTREGAS\PROJETOS DE SINANILZAÇÃO CENTRO\PDF", r"ENTREGAS\PROJETOS DE SINANILZAÇÃO CENTRO\DWG"),
         ),
     ]
@@ -272,7 +332,7 @@ def build() -> None:
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Portal navegável dos estudos de trânsito - Joaçaba</title>
+  <title>Portal de estudos de trânsito - Joaçaba</title>
   <link rel="icon" href="../assets/images/favicon.png">
   <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
   <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -284,33 +344,55 @@ def build() -> None:
     <a href="../">Estudo de Tráfego - Joaçaba</a>
     <nav>
       <a href="#centro">Centro</a>
-      <a href="#santa-tereza">Santa Tereza</a>
       <a href="#estatisticas">Contagens</a>
+      <a href="#santa-tereza">Santa Tereza</a>
       <a href="#acervo">Acervo</a>
     </nav>
   </header>
   <main class="portal-main">
     <section class="portal-hero">
       <p class="eyebrow">Documento navegável</p>
-      <h1>Estudos de trânsito, recálculo semafórico e acompanhamento do Bairro Santa Tereza</h1>
-      <p>Este portal organiza, em uma única leitura, os materiais técnicos e administrativos dos dois estudos. A redação apresenta o contexto, o estágio de cada frente e os documentos de suporte; os arquivos permanecem preservados em seus diretórios originais e são referenciados apenas por links.</p>
+      <h1>Estudos de trânsito e acompanhamento técnico municipal</h1>
+      <p>Portal de consulta dos materiais técnicos e administrativos relacionados ao recálculo semafórico, às alterações de circulação na área central e ao estudo de trânsito do Bairro Santa Tereza. A publicação organiza os documentos por finalidade, mantém a leitura institucional e preserva os arquivos nas pastas de origem.</p>
       <div class="hero-actions">
-        <a href="#centro">Projeto central</a>
-        <a href="#santa-tereza">Bairro Santa Tereza</a>
-        <a href="#estatisticas">Ver estatísticas</a>
+        <a href="#centro">Área central</a>
+        <a href="#estatisticas">Estatísticas</a>
+        <a href="#santa-tereza">Santa Tereza</a>
       </div>
     </section>
 
+    <section class="overview-grid" aria-label="Síntese dos projetos">
+      <article>
+        <span>Projeto 1</span>
+        <h2>Área central</h2>
+        <p>Contagens, relatório técnico atualizado, parametrização semafórica e projetos de circulação e sinalização.</p>
+      </article>
+      <article>
+        <span>Projeto 2</span>
+        <h2>Bairro Santa Tereza</h2>
+        <p>Processo em andamento com diretrizes, contratação, contagens, entregas técnicas e levantamentos complementares.</p>
+      </article>
+      <article>
+        <span>Dados consolidados</span>
+        <h2>{fmt_int(stats['total'])}</h2>
+        <p>Volume total apurado no resumo de movimentos, distribuído em {stats['points']} pontos ou interseções.</p>
+      </article>
+    </section>
+
     <section class="portal-section" id="contexto">
-      <h2>Leitura geral</h2>
+      <div class="section-heading">
+        <span>Contexto</span>
+        <h2>Leitura geral</h2>
+      </div>
       <p>O conjunto documental reúne duas frentes complementares da política municipal de circulação. A primeira trata do recálculo semafórico, das contagens volumétricas e classificatórias e dos projetos de sinalização associados às áreas centrais de Joaçaba. A segunda registra o estudo de tráfego do Bairro Santa Tereza, ainda em andamento, com documentação de contratação, levantamentos, contagens e entregas técnicas parciais.</p>
-      <p>A organização proposta separa evidências de entrada, relatórios, parametrizações e projetos resultantes. Essa estrutura facilita consulta pública, conferência interna e continuidade técnica, sem deslocar os arquivos originais do ambiente de trabalho do DTTMU.</p>
+      <p>A organização separa evidências de entrada, relatórios, parametrizações e projetos resultantes. Essa estrutura facilita consulta pública, conferência interna e continuidade técnica, sem deslocar os arquivos originais do ambiente de trabalho do DTTMU.</p>
     </section>
 
     <div id="centro"></div>
     {section(
-        "Projeto 1 - Recálculo semafórico e alterações na área central",
-        "O estudo central consolida contagens, relatório técnico atualizado em R2, parametrização semafórica e projetos de sinalização. A leitura recomendada parte do relatório de contagem, passa pela página estatística e segue para a parametrização e os projetos de circulação/sinalização.",
+        "Recálculo semafórico e alterações na área central",
+        "Projeto 1",
+        "O estudo central consolida contagens, relatório técnico atualizado, parametrização semafórica e projetos de sinalização. A leitura recomendada parte do relatório de contagem, passa pela página estatística e segue para a parametrização e os projetos de circulação.",
         centro_groups,
     )}
 
@@ -318,31 +400,21 @@ def build() -> None:
 
     <div id="santa-tereza"></div>
     {section(
-        "Projeto 2 - Estudo de trânsito do Bairro Santa Tereza",
+        "Estudo de trânsito do Bairro Santa Tereza",
+        "Projeto 2",
         "O estudo do Bairro Santa Tereza está organizado como frente em andamento. Os arquivos demonstram a formação do processo, as diretrizes e contratações, as contagens realizadas e as entregas técnicas relacionadas aos acessos e levantamentos municipais.",
         santa_groups,
     )}
 
     <section class="portal-section" id="acervo">
-      <h2>Critério de publicação</h2>
-      <p>Os links apontam para os arquivos nas pastas de origem. Em ambiente externo ao Drive compartilhado, o caminho pode servir como referência de localização; em estações com acesso ao acervo municipal, o link local permite abrir o documento diretamente conforme as permissões do usuário.</p>
-      <p>A manutenção deve preservar a lógica de fonte única: quando houver revisão de relatório, prancha ou planilha, recomenda-se atualizar o arquivo no diretório técnico e regenerar este portal, evitando anexos duplicados ou versões conflitantes.</p>
+      <div class="section-heading">
+        <span>Publicação</span>
+        <h2>Critério de organização</h2>
+      </div>
+      <p>Os links abrem as pastas de origem para consulta dos documentos, mantendo o acervo técnico como fonte única. Essa opção evita duplicidade de arquivos, reduz risco de conflito de versões e preserva a organização interna do Drive compartilhado.</p>
+      <p>Quando houver revisão de relatório, prancha ou planilha, recomenda-se atualizar o arquivo no diretório técnico e regenerar este portal. Os nomes apresentados aqui são nomes de exibição, padronizados para leitura pública e administrativa.</p>
     </section>
   </main>
-  <script>
-    document.querySelectorAll(".copy-path").forEach((button) => {{
-      button.addEventListener("click", async () => {{
-        const path = button.dataset.path;
-        try {{
-          await navigator.clipboard.writeText(path);
-          button.textContent = "Copiado";
-          setTimeout(() => button.textContent = "Copiar caminho", 1400);
-        }} catch (error) {{
-          button.textContent = "Selecione o caminho";
-        }}
-      }});
-    }});
-  </script>
 </body>
 </html>
 """

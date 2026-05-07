@@ -152,7 +152,7 @@
     var body = modal.querySelector(".download-notice__body");
     if (canDownload) {
       body.innerHTML = [
-        "<p>Este arquivo corresponde a uma das contagens de fluxo dos Pontos 02 e 08, disponibilizadas para download direto neste naveg\u00e1vel por se tratarem de bases da Prefeitura de Joa\u00e7aba associadas a contrato com a empresa 4mob.</p>",
+        "<p>Este arquivo corresponde a uma das contagens de fluxo dos Pontos 02 e 08, disponibilizadas para download direto neste naveg\u00e1vel por se tratarem de bases da Prefeitura de Joa\u00e7aba associadas a contrato com a empresa contratada.</p>",
         "<p>O arquivo ZIP \u00e9 disponibilizado sem senha para confer\u00eancia vinculada ao estudo.</p>"
       ].join("");
     } else {
