@@ -4,42 +4,42 @@
   "total": 284947,
   "topPoints": [
     {
-      "name": "Santa Terezinha x Ponte Emilio Baumgart",
+      "name": "Avenida Santa Terezinha x Ponte Emílio Baumgart",
       "total": 30407,
       "movementCount": 8
     },
     {
-      "name": "Getuli x Xv de Novembro",
+      "name": "Avenida Getúlio Vargas x Avenida XV de Novembro",
       "total": 30344,
       "movementCount": 5
     },
     {
-      "name": "Sta Terezinha",
+      "name": "Avenida Santa Terezinha",
       "total": 25547,
       "movementCount": 5
     },
     {
-      "name": "Av. Xv x Sete de Setembro",
+      "name": "Avenida XV de Novembro x Rua Sete de Setembro",
       "total": 24532,
       "movementCount": 4
     },
     {
-      "name": "Av Xv",
+      "name": "Avenida XV de Novembro",
       "total": 24022,
       "movementCount": 2
     },
     {
-      "name": "Rua Felipe Schmidt x Rio Branco",
+      "name": "Rua Felipe Schmidt x Avenida Barão do Rio Branco",
       "total": 22230,
       "movementCount": 5
     },
     {
-      "name": "Rio Branco x Francisco Lindner",
+      "name": "Avenida Barão do Rio Branco x Rua Francisco Lindner",
       "total": 18877,
       "movementCount": 2
     },
     {
-      "name": "Av Xv",
+      "name": "Avenida XV de Novembro",
       "total": 18762,
       "movementCount": 9
     },
@@ -49,14 +49,14 @@
       "movementCount": 8
     },
     {
-      "name": "Getulio x Francisco",
+      "name": "Avenida Getúlio Vargas x Rua Francisco Lindner",
       "total": 16164,
       "movementCount": 4
     }
   ],
   "blocks": [
     {
-      "name": "Eliziário de cartli",
+      "name": "Avenida Eliziário de Carli",
       "startRow": 9,
       "movements": [
         {
@@ -88,7 +88,7 @@
       "movementCount": 4
     },
     {
-      "name": "Angelina Piva",
+      "name": "Rua Angelina Piva",
       "startRow": 16,
       "movements": [
         {
@@ -176,7 +176,7 @@
       "movementCount": 8
     },
     {
-      "name": "Av Xv",
+      "name": "Avenida XV de Novembro",
       "startRow": 36,
       "movements": [
         {
@@ -238,7 +238,7 @@
       "movementCount": 9
     },
     {
-      "name": "Caetano",
+      "name": "Rua Caetano Natal Branco",
       "startRow": 50,
       "movements": [
         {
@@ -288,7 +288,7 @@
       "movementCount": 7
     },
     {
-      "name": "Sta Terezinha",
+      "name": "Avenida Santa Terezinha",
       "startRow": 62,
       "movements": [
         {
@@ -326,7 +326,7 @@
       "movementCount": 5
     },
     {
-      "name": "Getuli x Xv de Novembro",
+      "name": "Avenida Getúlio Vargas x Avenida XV de Novembro",
       "startRow": 73,
       "movements": [
         {
@@ -364,7 +364,7 @@
       "movementCount": 5
     },
     {
-      "name": "Getulio x Francisco",
+      "name": "Avenida Getúlio Vargas x Rua Francisco Lindner",
       "startRow": 83,
       "movements": [
         {
@@ -396,7 +396,7 @@
       "movementCount": 4
     },
     {
-      "name": "Rio Branco x Francisco Lindner",
+      "name": "Avenida Barão do Rio Branco x Rua Francisco Lindner",
       "startRow": 92,
       "movements": [
         {
@@ -416,7 +416,7 @@
       "movementCount": 2
     },
     {
-      "name": "Rua Felipe Schmidt x Rio Branco",
+      "name": "Rua Felipe Schmidt x Avenida Barão do Rio Branco",
       "startRow": 97,
       "movements": [
         {
@@ -454,7 +454,7 @@
       "movementCount": 5
     },
     {
-      "name": "Av. Xv x Sete de Setembro",
+      "name": "Avenida XV de Novembro x Rua Sete de Setembro",
       "startRow": 109,
       "movements": [
         {
@@ -486,7 +486,7 @@
       "movementCount": 4
     },
     {
-      "name": "Av Xv",
+      "name": "Avenida XV de Novembro",
       "startRow": 119,
       "movements": [
         {
@@ -506,7 +506,7 @@
       "movementCount": 2
     },
     {
-      "name": "Santa Terezinha x Ponte Emilio Baumgart",
+      "name": "Avenida Santa Terezinha x Ponte Emílio Baumgart",
       "startRow": 124,
       "movements": [
         {
@@ -562,7 +562,7 @@
       "movementCount": 8
     },
     {
-      "name": "Av. Rio Branco x Getulio Vargas",
+      "name": "Avenida Barão do Rio Branco x Avenida Getúlio Vargas",
       "startRow": 139,
       "movements": [
         {
@@ -612,7 +612,7 @@
       "movementCount": 7
     },
     {
-      "name": "Duque de caxias x Oscar da Nova x Ponte do Trabalhador",
+      "name": "Rua Duque de Caxias x Rua Oscar Rodrigues da Nova x Ponte do Trabalhador",
       "startRow": 153,
       "movements": [
         {
@@ -674,7 +674,7 @@
       "movementCount": 9
     },
     {
-      "name": "Sete de Setembro x Salgado Filho",
+      "name": "Rua Sete de Setembro x Rua Salgado Filho",
       "startRow": 169,
       "movements": [
         {

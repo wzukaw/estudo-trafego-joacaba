@@ -83,6 +83,27 @@ def fmt_size(size: int) -> str:
     return f"{size} B"
 
 
+def normalize_count_point(name: str) -> str:
+    names = {
+        "Eliziário de cartli": "Avenida Eliziário de Carli",
+        "Angelina Piva": "Rua Angelina Piva",
+        "Ponte Jorge Lacerda": "Ponte Jorge Lacerda",
+        "Av Xv": "Avenida XV de Novembro",
+        "Caetano": "Rua Caetano Natal Branco",
+        "Sta Terezinha": "Avenida Santa Terezinha",
+        "Getuli x Xv de Novembro": "Avenida Getúlio Vargas x Avenida XV de Novembro",
+        "Getulio x Francisco": "Avenida Getúlio Vargas x Rua Francisco Lindner",
+        "Rio Branco x Francisco Lindner": "Avenida Barão do Rio Branco x Rua Francisco Lindner",
+        "Rua Felipe Schmidt x Rio Branco": "Rua Felipe Schmidt x Avenida Barão do Rio Branco",
+        "Av. Xv x Sete de Setembro": "Avenida XV de Novembro x Rua Sete de Setembro",
+        "Santa Terezinha x Ponte Emilio Baumgart": "Avenida Santa Terezinha x Ponte Emílio Baumgart",
+        "Av. Rio Branco x Getulio Vargas": "Avenida Barão do Rio Branco x Avenida Getúlio Vargas",
+        "Duque de caxias x Oscar da Nova x Ponte do Trabalhador": "Rua Duque de Caxias x Rua Oscar Rodrigues da Nova x Ponte do Trabalhador",
+        "Sete de Setembro x Salgado Filho": "Rua Sete de Setembro x Rua Salgado Filho",
+    }
+    return names.get(name, name)
+
+
 def scan_files(base: Path, *relative_roots: str) -> list[dict[str, str]]:
     files: list[dict[str, str]] = []
     for rel in relative_roots:
@@ -125,7 +146,7 @@ def parse_counts() -> dict:
         if isinstance(point, str) and point.strip() and not isinstance(volume, (int, float)):
             if current:
                 blocks.append(current)
-            current = {"name": point.strip(), "startRow": row_index, "movements": []}
+            current = {"name": normalize_count_point(point.strip()), "startRow": row_index, "movements": []}
         elif current and isinstance(point, (int, float)) and isinstance(volume, (int, float)):
             current["movements"].append(
                 {
