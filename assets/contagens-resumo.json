@@ -1,0 +1,758 @@
+{
+  "source": "M:\\Drives compartilhados\\Trânsito Joaçaba\\DTTMU\\LICITAÇÕES, COMPRAS E CONTRATO\\Estudo de transito - Recalculo semafórico e alterações\\CONTAGENS_RESUMO_MOVIMENTO.xlsx",
+  "points": 16,
+  "movements": 95,
+  "total": 284947,
+  "topPoints": [
+    {
+      "name": "Santa Terezinha x Ponte Emilio Baumgart",
+      "total": 30407,
+      "movementCount": 8
+    },
+    {
+      "name": "Getuli x Xv de Novembro",
+      "total": 30344,
+      "movementCount": 5
+    },
+    {
+      "name": "Sta Terezinha",
+      "total": 25547,
+      "movementCount": 5
+    },
+    {
+      "name": "Av. Xv x Sete de Setembro",
+      "total": 24532,
+      "movementCount": 4
+    },
+    {
+      "name": "Av Xv",
+      "total": 24022,
+      "movementCount": 2
+    },
+    {
+      "name": "Rua Felipe Schmidt x Rio Branco",
+      "total": 22230,
+      "movementCount": 5
+    },
+    {
+      "name": "Rio Branco x Francisco Lindner",
+      "total": 18877,
+      "movementCount": 2
+    },
+    {
+      "name": "Av Xv",
+      "total": 18762,
+      "movementCount": 9
+    },
+    {
+      "name": "Ponte Jorge Lacerda",
+      "total": 18275,
+      "movementCount": 8
+    },
+    {
+      "name": "Getulio x Francisco",
+      "total": 16164,
+      "movementCount": 4
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Eliziário de cartli",
+      "startRow": 9,
+      "movements": [
+        {
+          "movement": 1,
+          "volume": 1362,
+          "origin": "",
+          "destination": ""
+        },
+        {
+          "movement": 2,
+          "volume": 1270,
+          "origin": "2632",
+          "destination": "Centro -Bairro"
+        },
+        {
+          "movement": 3,
+          "volume": 1061,
+          "origin": "",
+          "destination": ""
+        },
+        {
+          "movement": 6,
+          "volume": 1026,
+          "origin": "2087",
+          "destination": "Bairro-Centro"
+        }
+      ],
+      "total": 4719,
+      "movementCount": 4
+    },
+    {
+      "name": "Angelina Piva",
+      "startRow": 16,
+      "movements": [
+        {
+          "movement": 1,
+          "volume": 1632,
+          "origin": "",
+          "destination": ""
+        },
+        {
+          "movement": 3,
+          "volume": 1061,
+          "origin": "2693",
+          "destination": "Centro -Bairro"
+        },
+        {
+          "movement": 5,
+          "volume": 53,
+          "origin": "",
+          "destination": ""
+        },
+        {
+          "movement": 6,
+          "volume": 1026,
+          "origin": "1079",
+          "destination": "Bairro-Centro"
+        }
+      ],
+      "total": 3772,
+      "movementCount": 4
+    },
+    {
+      "name": "Ponte Jorge Lacerda",
+      "startRow": 23,
+      "movements": [
+        {
+          "movement": 5,
+          "volume": 1824,
+          "origin": "Ponte",
+          "destination": "Caetano"
+        },
+        {
+          "movement": 6,
+          "volume": 285,
+          "origin": "Ponte",
+          "destination": "Minas Gerais"
+        },
+        {
+          "movement": 7,
+          "volume": 2090,
+          "origin": "Ponte",
+          "destination": "Santa Tereza"
+        },
+        {
+          "movement": 8,
+          "volume": 4112,
+          "origin": "Ponte",
+          "destination": "Centro"
+        },
+        {
+          "movement": 11,
+          "volume": 1592,
+          "origin": "Luzerna",
+          "destination": "Ponte"
+        },
+        {
+          "movement": 1,
+          "volume": 3962,
+          "origin": "Centro",
+          "destination": "Ponte"
+        },
+        {
+          "movement": 15,
+          "volume": 2440,
+          "origin": "Sta Tereza",
+          "destination": "Ponte"
+        },
+        {
+          "movement": 19,
+          "volume": 1970,
+          "origin": "Marcelino",
+          "destination": "Ponte"
+        }
+      ],
+      "total": 18275,
+      "movementCount": 8
+    },
+    {
+      "name": "Av Xv",
+      "startRow": 36,
+      "movements": [
+        {
+          "movement": 1,
+          "volume": 3962,
+          "origin": "Centro",
+          "destination": "Ponte"
+        },
+        {
+          "movement": 2,
+          "volume": 3308,
+          "origin": "Centro",
+          "destination": "Caetano"
+        },
+        {
+          "movement": 3,
+          "volume": 244,
+          "origin": "Centro",
+          "destination": "Minas gerais"
+        },
+        {
+          "movement": 4,
+          "volume": 1258,
+          "origin": "Centro",
+          "destination": "Sta Tereza"
+        },
+        {
+          "movement": 8,
+          "volume": 4112,
+          "origin": "Ponte",
+          "destination": "Centro"
+        },
+        {
+          "movement": 10,
+          "volume": 3930,
+          "origin": "Caetano",
+          "destination": "Centro"
+        },
+        {
+          "movement": 12,
+          "volume": 155,
+          "origin": "Minas",
+          "destination": "Centro"
+        },
+        {
+          "movement": 14,
+          "volume": 1607,
+          "origin": "Sta Tereza",
+          "destination": "Centro"
+        },
+        {
+          "movement": 20,
+          "volume": 186,
+          "origin": "Marcelino",
+          "destination": "Centro"
+        }
+      ],
+      "total": 18762,
+      "movementCount": 9
+    },
+    {
+      "name": "Caetano",
+      "startRow": 50,
+      "movements": [
+        {
+          "movement": 9,
+          "volume": 2055,
+          "origin": "Caetano",
+          "destination": "Sta Tereza"
+        },
+        {
+          "movement": 10,
+          "volume": 3930,
+          "origin": "Caetano",
+          "destination": "Centro"
+        },
+        {
+          "movement": 11,
+          "volume": 1592,
+          "origin": "Caetano",
+          "destination": "Ponte"
+        },
+        {
+          "movement": 5,
+          "volume": 1824,
+          "origin": "Ponte",
+          "destination": "Cetano"
+        },
+        {
+          "movement": 2,
+          "volume": 3308,
+          "origin": "Centro",
+          "destination": "Caetano"
+        },
+        {
+          "movement": 16,
+          "volume": 997,
+          "origin": "Sta Tereza",
+          "destination": "Caetano"
+        },
+        {
+          "movement": 18,
+          "volume": 566,
+          "origin": "Marcelino",
+          "destination": "Caetano"
+        }
+      ],
+      "total": 14272,
+      "movementCount": 7
+    },
+    {
+      "name": "Sta Terezinha",
+      "startRow": 62,
+      "movements": [
+        {
+          "movement": 3,
+          "volume": 10932,
+          "origin": "Bairro",
+          "destination": "Centro"
+        },
+        {
+          "movement": 1,
+          "volume": 3823,
+          "origin": "Centro",
+          "destination": "Frei Edgar"
+        },
+        {
+          "movement": 2,
+          "volume": 6407,
+          "origin": "Centro",
+          "destination": "Bairro"
+        },
+        {
+          "movement": 4,
+          "volume": 2075,
+          "origin": "Frei Edgar",
+          "destination": "Centro"
+        },
+        {
+          "movement": 5,
+          "volume": 2310,
+          "origin": "Frei Edgar",
+          "destination": "Sta Terezinha"
+        }
+      ],
+      "total": 25547,
+      "movementCount": 5
+    },
+    {
+      "name": "Getuli x Xv de Novembro",
+      "startRow": 73,
+      "movements": [
+        {
+          "movement": 1,
+          "volume": 8306,
+          "origin": "Xv",
+          "destination": "Getulio - Catedral"
+        },
+        {
+          "movement": 2,
+          "volume": 9168,
+          "origin": "Xv",
+          "destination": "Xv"
+        },
+        {
+          "movement": 3,
+          "volume": 1395,
+          "origin": "Xv",
+          "destination": "Getulio - Unoesc"
+        },
+        {
+          "movement": 4,
+          "volume": 6186,
+          "origin": "Getulio",
+          "destination": "Getulio"
+        },
+        {
+          "movement": 5,
+          "volume": 5289,
+          "origin": "Getulio",
+          "destination": "XV"
+        }
+      ],
+      "total": 30344,
+      "movementCount": 5
+    },
+    {
+      "name": "Getulio x Francisco",
+      "startRow": 83,
+      "movements": [
+        {
+          "movement": 1,
+          "volume": 6914,
+          "origin": "Getulio",
+          "destination": "Getulio - Unoesc"
+        },
+        {
+          "movement": 2,
+          "volume": 1598,
+          "origin": "Getulio",
+          "destination": "Francisco"
+        },
+        {
+          "movement": 3,
+          "volume": 5597,
+          "origin": "Francisco",
+          "destination": "Francisco"
+        },
+        {
+          "movement": 4,
+          "volume": 2055,
+          "origin": "Francisco",
+          "destination": "Getulio - Unoesc"
+        }
+      ],
+      "total": 16164,
+      "movementCount": 4
+    },
+    {
+      "name": "Rio Branco x Francisco Lindner",
+      "startRow": 92,
+      "movements": [
+        {
+          "movement": 1,
+          "volume": 12100,
+          "origin": "Rio Branco",
+          "destination": "Centro"
+        },
+        {
+          "movement": 2,
+          "volume": 6777,
+          "origin": "Francisco",
+          "destination": "Rio Branco"
+        }
+      ],
+      "total": 18877,
+      "movementCount": 2
+    },
+    {
+      "name": "Rua Felipe Schmidt x Rio Branco",
+      "startRow": 97,
+      "movements": [
+        {
+          "movement": 1,
+          "volume": 1274,
+          "origin": "Felipe - centro",
+          "destination": "Felipe - Parque"
+        },
+        {
+          "movement": 2,
+          "volume": 3352,
+          "origin": "Felipe",
+          "destination": "Rio Branco"
+        },
+        {
+          "movement": 3,
+          "volume": 13053,
+          "origin": "Rio Branco",
+          "destination": "Felipe"
+        },
+        {
+          "movement": 4,
+          "volume": 1131,
+          "origin": "Rio Branco",
+          "destination": "Rio Branco"
+        },
+        {
+          "movement": 5,
+          "volume": 3420,
+          "origin": "Felipe - Parque",
+          "destination": "Rio Branco"
+        }
+      ],
+      "total": 22230,
+      "movementCount": 5
+    },
+    {
+      "name": "Av. Xv x Sete de Setembro",
+      "startRow": 109,
+      "movements": [
+        {
+          "movement": 1,
+          "volume": 10481,
+          "origin": "Xv",
+          "destination": "XV - Bairro"
+        },
+        {
+          "movement": 2,
+          "volume": 3693,
+          "origin": "XV",
+          "destination": "Sete"
+        },
+        {
+          "movement": 3,
+          "volume": 9143,
+          "origin": "XV - Bairro",
+          "destination": "Sete"
+        },
+        {
+          "movement": 4,
+          "volume": 1215,
+          "origin": "XV - Bairro",
+          "destination": "Retorno - Bairro"
+        }
+      ],
+      "total": 24532,
+      "movementCount": 4
+    },
+    {
+      "name": "Av Xv",
+      "startRow": 119,
+      "movements": [
+        {
+          "movement": 1,
+          "volume": 12151,
+          "origin": "Centro",
+          "destination": "Bairro"
+        },
+        {
+          "movement": 2,
+          "volume": 11871,
+          "origin": "Bairro",
+          "destination": "Centro"
+        }
+      ],
+      "total": 24022,
+      "movementCount": 2
+    },
+    {
+      "name": "Santa Terezinha x Ponte Emilio Baumgart",
+      "startRow": 124,
+      "movements": [
+        {
+          "movement": 1,
+          "volume": 1958,
+          "origin": "Sta Terezinha",
+          "destination": "Ponte"
+        },
+        {
+          "movement": 2,
+          "volume": 3613,
+          "origin": "Sta Terezinha",
+          "destination": "Centro"
+        },
+        {
+          "movement": 3,
+          "volume": 5343,
+          "origin": "Sta Terezinha",
+          "destination": "Ponte"
+        },
+        {
+          "movement": 4,
+          "volume": 2829,
+          "origin": "Sta Terezinha",
+          "destination": "Bairro"
+        },
+        {
+          "movement": 5,
+          "volume": 2072,
+          "origin": "Ponte",
+          "destination": "Sta T. Bairro"
+        },
+        {
+          "movement": 6,
+          "volume": 7291,
+          "origin": "Ponte",
+          "destination": "Sta T. Centro"
+        },
+        {
+          "movement": 1,
+          "volume": 1958,
+          "origin": "Sta T. Bairro",
+          "destination": "Ponte"
+        },
+        {
+          "movement": 3,
+          "volume": 5343,
+          "origin": "Sta T. Centro",
+          "destination": "Ponte"
+        }
+      ],
+      "total": 30407,
+      "movementCount": 8
+    },
+    {
+      "name": "Av. Rio Branco x Getulio Vargas",
+      "startRow": 139,
+      "movements": [
+        {
+          "movement": 1,
+          "volume": 1651,
+          "origin": "Getulio",
+          "destination": "Rio Branco - Hospital"
+        },
+        {
+          "movement": 2,
+          "volume": 3545,
+          "origin": "Getulio",
+          "destination": "Getulio - Unoesc"
+        },
+        {
+          "movement": 3,
+          "volume": 583,
+          "origin": "Getulio",
+          "destination": "Rio Branco - Centro"
+        },
+        {
+          "movement": 4,
+          "volume": 1719,
+          "origin": "Rio Branco",
+          "destination": "Rio Branco - Centro"
+        },
+        {
+          "movement": 5,
+          "volume": 789,
+          "origin": "Rio Branco",
+          "destination": "Getulio - Unoesc"
+        },
+        {
+          "movement": 6,
+          "volume": 2915,
+          "origin": "Getulio",
+          "destination": "Rio Branco - Hospital"
+        },
+        {
+          "movement": 7,
+          "volume": 2384,
+          "origin": "Getulio",
+          "destination": "Rio Branco - Centro"
+        }
+      ],
+      "total": 13586,
+      "movementCount": 7
+    },
+    {
+      "name": "Duque de caxias x Oscar da Nova x Ponte do Trabalhador",
+      "startRow": 153,
+      "movements": [
+        {
+          "movement": 1,
+          "volume": 101,
+          "origin": "Oscar da Nova",
+          "destination": "Duque - Catedral"
+        },
+        {
+          "movement": 2,
+          "volume": 92,
+          "origin": "Oscar da Nova",
+          "destination": "Duque - Adolfo"
+        },
+        {
+          "movement": 3,
+          "volume": 356,
+          "origin": "Oscar da Nova",
+          "destination": "Ponte"
+        },
+        {
+          "movement": 4,
+          "volume": 171,
+          "origin": "Duque",
+          "destination": "Ponte"
+        },
+        {
+          "movement": 5,
+          "volume": 1154,
+          "origin": "Duque",
+          "destination": "Oscar"
+        },
+        {
+          "movement": 6,
+          "volume": 3655,
+          "origin": "Duque",
+          "destination": "Duque - Adolfo"
+        },
+        {
+          "movement": 7,
+          "volume": 828,
+          "origin": "Duque",
+          "destination": "Oscar"
+        },
+        {
+          "movement": 8,
+          "volume": 2914,
+          "origin": "Duque",
+          "destination": "Duque - Catedral"
+        },
+        {
+          "movement": 9,
+          "volume": 102,
+          "origin": "Duque",
+          "destination": "Ponte"
+        }
+      ],
+      "total": 9373,
+      "movementCount": 9
+    },
+    {
+      "name": "Sete de Setembro x Salgado Filho",
+      "startRow": 169,
+      "movements": [
+        {
+          "movement": 1,
+          "volume": 367,
+          "origin": "Sete",
+          "destination": "Salgado - Hosp"
+        },
+        {
+          "movement": 2,
+          "volume": 927,
+          "origin": "Sete",
+          "destination": "Sete - Unoesc"
+        },
+        {
+          "movement": 3,
+          "volume": 2087,
+          "origin": "Sete",
+          "destination": "Salgado - Centro"
+        },
+        {
+          "movement": 4,
+          "volume": 1956,
+          "origin": "Salgado",
+          "destination": "Salgado - Centro"
+        },
+        {
+          "movement": 5,
+          "volume": 189,
+          "origin": "Salgado",
+          "destination": "Sete - centro"
+        },
+        {
+          "movement": 6,
+          "volume": 1104,
+          "origin": "Salgado",
+          "destination": "Sete - bairro"
+        },
+        {
+          "movement": 7,
+          "volume": 488,
+          "origin": "Sete",
+          "destination": "Salgado - Hosp"
+        },
+        {
+          "movement": 8,
+          "volume": 494,
+          "origin": "Sete",
+          "destination": "Sete - Centro"
+        },
+        {
+          "movement": 9,
+          "volume": 234,
+          "origin": "Sete",
+          "destination": "Salgado - Centro"
+        },
+        {
+          "movement": 10,
+          "volume": 1413,
+          "origin": "Salgado",
+          "destination": "Salgado - Hosp"
+        },
+        {
+          "movement": 11,
+          "volume": 267,
+          "origin": "Salgado",
+          "destination": "Sete - Bairro"
+        },
+        {
+          "movement": 12,
+          "volume": 539,
+          "origin": "Salgado",
+          "destination": "Sete - Centro"
+        }
+      ],
+      "total": 10065,
+      "movementCount": 12
+    }
+  ]
+}
