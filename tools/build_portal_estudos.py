@@ -195,7 +195,7 @@ def link_rows(files: list[dict[str, str]], group: str, show_links: bool = True) 
     rows = []
     for item in files:
         link_cell = (
-            f"<td><a class=\"folder-link\" href=\"{html.escape(item['folderHref'])}\">Abrir pasta</a></td>"
+            '<td><span class="folder-link folder-link-disabled">Disponível no acervo</span></td>'
             if show_links
             else "<td>Sem link público</td>"
         )

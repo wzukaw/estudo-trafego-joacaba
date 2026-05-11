@@ -108,6 +108,14 @@
   white-space: nowrap;
 }
 
+.folder-link-disabled {
+  border-color: #2c4052;
+  background: #17212b;
+  color: #8fa0af;
+  cursor: default;
+  opacity: 0.68;
+}
+
 .overview-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
