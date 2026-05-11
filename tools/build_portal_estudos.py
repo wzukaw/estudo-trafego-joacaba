@@ -191,16 +191,21 @@ def fmt_int(value: int) -> str:
     return f"{value:,}".replace(",", ".")
 
 
-def link_rows(files: list[dict[str, str]], group: str) -> str:
+def link_rows(files: list[dict[str, str]], group: str, show_links: bool = True) -> str:
     rows = []
     for item in files:
+        link_cell = (
+            f"<td><a class=\"folder-link\" href=\"{html.escape(item['folderHref'])}\">Abrir pasta</a></td>"
+            if show_links
+            else "<td>Sem link público</td>"
+        )
         rows.append(
             "<tr>"
             f"<td><strong>{html.escape(item['title'])}</strong></td>"
             f"<td>{html.escape(group)}</td>"
             f"<td>{html.escape(item['extension'])}</td>"
             f"<td>{html.escape(item['size'])}</td>"
-            f"<td><a class=\"folder-link\" href=\"{html.escape(item['folderHref'])}\">Abrir pasta</a></td>"
+            f"{link_cell}"
             "</tr>"
         )
     if not rows:
@@ -258,9 +263,11 @@ def counts_html(stats: dict) -> str:
     """
 
 
-def section(title: str, label: str, body: str, groups: list[tuple[str, str, list[dict[str, str]]]]) -> str:
+def section(title: str, label: str, body: str, groups: list[tuple]) -> str:
     group_html = []
-    for index, (group_title, note, files) in enumerate(groups):
+    for index, group in enumerate(groups):
+        group_title, note, files = group[:3]
+        show_links = group[3] if len(group) > 3 else True
         open_attr = " open" if index == 0 else ""
         group_html.append(
             f"""
@@ -273,7 +280,7 @@ def section(title: str, label: str, body: str, groups: list[tuple[str, str, list
               <div class="table-wrap">
                 <table>
                   <thead><tr><th>Documento</th><th>Grupo</th><th>Formato</th><th>Tamanho</th><th>Link</th></tr></thead>
-                  <tbody>{link_rows(files, group_title)}</tbody>
+                  <tbody>{link_rows(files, group_title, show_links)}</tbody>
                 </table>
               </div>
             </details>
@@ -337,6 +344,7 @@ def build() -> None:
                 r"COMPRA",
                 r"CONTRATO, EMPENHO E PAGAMENTO",
             ),
+            False,
         ),
         (
             "Contagens de tráfego",
@@ -352,6 +360,7 @@ def build() -> None:
             "Aditivos, manifestações e levantamentos",
             "Registros complementares do andamento contratual, manifestações e bases topográficas ou de levantamento.",
             scan_files(PROJETO_SANTA_TEREZA, r"ADITIVOS", r"01 MP", r"LEVAMENTAMENTOS MUNICIPIO", r"Levantamento com drone - topografia prefeitura"),
+            False,
         ),
     ]
 
