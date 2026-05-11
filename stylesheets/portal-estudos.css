@@ -1,7 +1,7 @@
 .portal-body {
   margin: 0;
-  background: #f4f6f8;
-  color: #172033;
+  background: #0d141c;
+  color: #d8e2ec;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -14,13 +14,14 @@
   justify-content: space-between;
   gap: 1rem;
   padding: 0.72rem clamp(1rem, 4vw, 3rem);
-  background: #22313f;
-  color: #fff;
-  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.18);
+  border-bottom: 1px solid #263545;
+  background: rgba(14, 22, 31, 0.96);
+  color: #f3f7fb;
+  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
 }
 
 .portal-header a {
-  color: #fff;
+  color: #f3f7fb;
   text-decoration: none;
   font-weight: 700;
 }
@@ -46,16 +47,16 @@
 .portal-hero {
   padding: clamp(1.4rem, 4vw, 3rem);
   margin-bottom: 1rem;
-  border: 1px solid #d6e0ea;
+  border: 1px solid #263545;
   border-radius: 8px;
-  background: #fff;
-  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
+  background: #121c26;
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.24);
 }
 
 .portal-hero h1 {
   max-width: 860px;
   margin: 0 0 0.8rem;
-  color: #172033;
+  color: #f4f8fb;
   font-size: clamp(2rem, 4.6vw, 3.2rem);
   line-height: 1.08;
   letter-spacing: 0;
@@ -76,7 +77,7 @@
 .eyebrow,
 .section-heading span,
 .overview-grid span {
-  color: #617184;
+  color: #8fb8c6;
   font-size: 0.74rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -97,10 +98,10 @@
   justify-content: center;
   min-height: 2rem;
   padding: 0.38rem 0.72rem;
-  border: 1px solid #8fa7bd;
+  border: 1px solid #3d6f7d;
   border-radius: 6px;
-  background: #eef4f8;
-  color: #172033;
+  background: #14303a;
+  color: #dff8ff;
   font-size: 0.76rem;
   font-weight: 700;
   text-decoration: none;
@@ -116,10 +117,10 @@
 
 .overview-grid article,
 .portal-section {
-  border: 1px solid #d6e0ea;
+  border: 1px solid #263545;
   border-radius: 8px;
-  background: #fff;
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.045);
+  background: #121c26;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
 }
 
 .overview-grid article {
@@ -128,7 +129,7 @@
 
 .overview-grid h2 {
   margin: 0.2rem 0 0.4rem;
-  color: #172033;
+  color: #f4f8fb;
   font-size: 1.08rem;
 }
 
@@ -143,14 +144,14 @@
 
 .section-heading h2 {
   margin: 0.18rem 0 0;
-  color: #172033;
+  color: #f4f8fb;
   font-size: 1.34rem;
   line-height: 1.2;
 }
 
 .portal-section h3 {
   margin: 1.05rem 0 0.5rem;
-  color: #263748;
+  color: #d9edf3;
   font-size: 1rem;
 }
 
@@ -163,21 +164,21 @@
 
 .metric {
   padding: 0.9rem;
-  border: 1px solid #dbe3ec;
+  border: 1px solid #2c4052;
   border-radius: 8px;
-  background: #f8fbfd;
+  background: #0f1821;
 }
 
 .metric span {
   display: block;
-  color: #617184;
+  color: #9fb0bf;
   font-size: 0.76rem;
 }
 
 .metric strong {
   display: block;
   margin-top: 0.25rem;
-  color: #172033;
+  color: #f2c879;
   font-size: 1.42rem;
 }
 
@@ -201,24 +202,26 @@
   height: 0.7rem;
   overflow: hidden;
   border-radius: 999px;
-  background: #dbe3ec;
+  background: #263545;
 }
 
 .bar-fill {
   display: block;
   height: 100%;
-  background: #2f6f8f;
+  background: #4aa3b5;
 }
 
 .group-stack {
   display: grid;
   gap: 0.75rem;
+  min-width: 0;
 }
 
 .file-group {
-  border: 1px solid #dbe3ec;
+  border: 1px solid #2c4052;
   border-radius: 8px;
-  background: #fbfcfd;
+  background: #0f1821;
+  min-width: 0;
 }
 
 .file-group summary {
@@ -227,13 +230,13 @@
   justify-content: space-between;
   gap: 1rem;
   padding: 0.78rem 0.9rem;
-  color: #172033;
+  color: #eef5f8;
   font-weight: 700;
   cursor: pointer;
 }
 
 .file-group summary small {
-  color: #617184;
+  color: #9fb0bf;
   font-size: 0.74rem;
   font-weight: 700;
   white-space: nowrap;
@@ -241,16 +244,17 @@
 
 .file-group p {
   margin: 0 0.9rem 0.75rem;
-  color: #3b4654;
+  color: #bdcbd7;
 }
 
 .table-wrap {
   width: calc(100% - 1.8rem);
+  max-width: calc(100% - 1.8rem);
   margin: 0 0.9rem 0.9rem;
   overflow-x: auto;
-  border: 1px solid #dbe3ec;
+  border: 1px solid #2c4052;
   border-radius: 8px;
-  background: #fff;
+  background: #0b1219;
 }
 
 .table-wrap.compact {
@@ -268,19 +272,19 @@
 .portal-section th,
 .portal-section td {
   padding: 0.5rem 0.6rem;
-  border-bottom: 1px solid #e4ebf2;
+  border-bottom: 1px solid #223140;
   text-align: left;
   vertical-align: middle;
 }
 
 .portal-section th {
-  background: #eef4f8;
-  color: #172033;
+  background: #172636;
+  color: #edf6fb;
   font-weight: 700;
 }
 
 .portal-section td:nth-child(2) {
-  color: #617184;
+  color: #9fb0bf;
 }
 
 @media (max-width: 820px) {
