@@ -214,6 +214,43 @@ def link_rows(files: list[dict[str, str]], group: str, show_links: bool = True) 
 
 
 def counts_html(stats: dict) -> str:
+    context_rows = [
+        ("População estimada", "31.809 hab.", "2025"),
+        ("População censitária", "30.146 hab.", "2022"),
+        ("Frota total", "28.785 veículos", "2025"),
+        ("Frota de circulação urbana", "27.877 veículos", "2025"),
+        ("Relação frota/habitante", "0,88 veíc./hab.", "Cálculo consolidado"),
+    ]
+    context_table = "".join(
+        "<tr>"
+        f"<td>{html.escape(label)}</td>"
+        f"<td>{html.escape(value)}</td>"
+        f"<td>{html.escape(reference)}</td>"
+        "</tr>"
+        for label, value, reference in context_rows
+    )
+
+    highlight_rows = [
+        ("Cone: Ponte Jorge Lacerda + Avenida XV de Novembro + Rua Caetano Natal Branco", 32581, "Agrupamento consolidado"),
+        ("Avenida Getúlio Vargas x Avenida XV de Novembro", 30344, "Cruzamento"),
+        ("Avenida XV de Novembro x Rua Sete de Setembro", 24532, "Cruzamento"),
+        ("Avenida XV de Novembro", 24022, "Trecho contínuo"),
+        ("Rua Felipe Schmidt x Avenida Barão do Rio Branco", 22230, "Cruzamento"),
+        ("Ponte Jorge Lacerda", 18275, "Ponto"),
+        ("Avenida Santa Terezinha", 14615, "Ponto"),
+        ("Avenida Barão do Rio Branco x Avenida Getúlio Vargas", 13586, "Cruzamento"),
+        ("Rua Sete de Setembro x Rua Salgado Filho", 10065, "Cruzamento"),
+        ("Rua Duque de Caxias x Rua Oscar Rodrigues da Nova x Ponte do Trabalhador", 9373, "Interseção"),
+    ]
+    highlight_table = "".join(
+        "<tr>"
+        f"<td>{html.escape(local)}</td>"
+        f"<td>{fmt_int(total)}</td>"
+        f"<td>{html.escape(kind)}</td>"
+        "</tr>"
+        for local, total, kind in highlight_rows
+    )
+
     max_total = max(point["total"] for point in stats["topPoints"]) if stats["topPoints"] else 1
     bars = []
     for point in stats["topPoints"]:
@@ -249,6 +286,20 @@ def counts_html(stats: dict) -> str:
         <div class="metric"><span>Pontos ou interseções</span><strong>{stats['points']}</strong></div>
         <div class="metric"><span>Movimentos consolidados</span><strong>{stats['movements']}</strong></div>
         <div class="metric"><span>Volume total apurado</span><strong>{fmt_int(stats['total'])}</strong></div>
+      </div>
+      <h3>Indicadores de contexto</h3>
+      <div class="table-wrap compact">
+        <table>
+          <thead><tr><th>Indicador</th><th>Valor</th><th>Referência</th></tr></thead>
+          <tbody>{context_table}</tbody>
+        </table>
+      </div>
+      <h3>Destaques consolidados</h3>
+      <div class="table-wrap compact">
+        <table>
+          <thead><tr><th>Local</th><th>Volume</th><th>Tipo</th></tr></thead>
+          <tbody>{highlight_table}</tbody>
+        </table>
       </div>
       <h3>Maiores volumes consolidados</h3>
       <div class="bar-list">{''.join(bars)}</div>
